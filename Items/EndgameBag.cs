@@ -17,7 +17,7 @@ namespace ImmortalShadows.Items
 		{
 			item.width = 20;
 			item.height = 18;
-			item.rare = 11;
+			item.rare = -12;
 		}
 
 		public override bool CanRightClick() 
