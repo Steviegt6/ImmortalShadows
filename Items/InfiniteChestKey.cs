@@ -3,14 +3,14 @@ using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
 
-namespace ExampleMod.Items
+namespace ImmortalShadows.Items
 {
 	class InfiniteChestKey : ModItem
 	{
 		public override void SetStaticDefaults()
         {
 			DisplayName.SetDefault("Infinite Golden Key");
-            Tooltip.SetDefault("Unlock ALL of the chests!"
+            Tooltip.SetDefault("Unlock EVERY chest!"
 			    + "\nNot consumable");
         }	
 		
