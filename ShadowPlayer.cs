@@ -16,10 +16,12 @@ namespace ImmortalShadows
 	public class ShadowPlayer : ModPlayer
 	{
 		public bool shadowLightPet;
+		public bool shadowMinion;
 
 		public override void ResetEffects() 
 		{
 			shadowLightPet = false;
+			shadowMinion = false;
 		}
 	}
 }

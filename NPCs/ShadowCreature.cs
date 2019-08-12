@@ -157,6 +157,8 @@ namespace ImmortalShadows.NPCs
 			nextSlot++;
 			shop.item[nextSlot].SetDefaults(mod.ItemType("ShadowBullet"));
 			nextSlot++;
+			shop.item[nextSlot].SetDefaults(mod.ItemType("ShadowBuffPotion"));
+			nextSlot++;
 		}
 
 		public override void NPCLoot() 

@@ -16,7 +16,7 @@ namespace ImmortalShadows.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			item.damage = 108;
+			item.damage = 118;
 			item.ranged = true;
 			item.width = 66;
 			item.height = 32;
