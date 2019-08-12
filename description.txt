@@ -5,7 +5,7 @@ Current content:
 27 items
 1 NPC
 1 tile
-3 buff
+3 buffs
 
 Changelogs are in the discord server (homepage)
 
