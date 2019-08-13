@@ -14,6 +14,11 @@ namespace ImmortalShadows.NPCs
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowChunk"), 60);
                 }
+				
+				if (npc.type == NPCID.SkeletronHead)
+				{
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("RustySword"));
+				}
             }
         }
     }
