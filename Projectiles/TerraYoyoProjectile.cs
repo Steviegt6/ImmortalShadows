@@ -16,14 +16,10 @@ namespace ImmortalShadows.Projectiles
 
 		public override void SetDefaults() 
 		{
-			projectile.extraUpdates = 0;
-			projectile.width = 16;
-			projectile.height = 16;
-			projectile.aiStyle = 99;
-			projectile.friendly = true;
-			projectile.penetrate = -1;
-			projectile.melee = true;
-			projectile.scale = 1f;
+			projectile.CloneDefaults(ProjectileID.Terrarian);
+			projectile.damage = 124;
+			projectile.extraUpdates = 1;
+			aiType = ProjectileID.Terrarian;
 		}
 
 		public override void PostAI() 
