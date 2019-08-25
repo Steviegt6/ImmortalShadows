@@ -1,6 +1,7 @@
 author = Immortal Phoenix
-version = 0.4.3
+version = 0.4.4
 displayName = Immortal Shadows (Beta)
 homepage = https://discord.gg/u48D2JZ
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
-
+includeSource = true
+hideCode = false
