@@ -2,8 +2,8 @@ Immortal Shadows is just another content mod.
 It doesn't add much right now, but will hopefully have lots of content in the future!
 
 Current content:
-27 items
-1 NPC
+30 items
+2 NPCs
 1 tile
 3 buffs
 
