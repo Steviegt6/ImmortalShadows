@@ -36,7 +36,7 @@ namespace ImmortalShadows.Items.Weapons
 			item.noUseGraphic = true;
 
 			item.UseSound = SoundID.Item1;
-			item.value = Item.sellPrice(platinum: 1);
+			item.value = Item.sellPrice(gold: 55);
 			item.shoot = mod.ProjectileType<TerraYoyoProjectile>();			
 		}
 

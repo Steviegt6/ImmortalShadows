@@ -18,13 +18,13 @@ namespace ImmortalShadows.Items.Weapons
 		{
 			item.damage = 310;
 			item.melee = true;
-			item.width = 50;
-			item.height = 50;
+			item.width = 46;
+			item.height = 54;
 			item.useTime = 16;
 			item.useAnimation = 16;
 			item.useStyle = 1;
 			item.knockBack = 6;
-			item.value = Item.sellPrice(platinum: 1);
+			item.value = Item.sellPrice(gold: 65);
 			item.rare = 11;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;

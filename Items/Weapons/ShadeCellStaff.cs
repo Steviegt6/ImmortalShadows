@@ -25,7 +25,7 @@ namespace ImmortalShadows.Items.Weapons
 			item.useStyle = 1;
 			item.noMelee = true;
 			item.knockBack = 3;
-			item.value = Item.sellPrice(gold: 80);
+			item.value = Item.sellPrice(gold: 30);
 			item.rare = 11;
 			item.UseSound = SoundID.Item44;
 			item.shoot = mod.ProjectileType("ShadeCell");

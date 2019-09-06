@@ -28,7 +28,7 @@ namespace ImmortalShadows.Items.Weapons
 			item.noMelee = true;
 			item.channel = true;
 			item.knockBack = 5;
-			item.value = Item.sellPrice(gold: 70);
+			item.value = Item.sellPrice(gold: 25);
 			item.rare = 11;
 			item.UseSound = SoundID.Item9;
 			item.shoot = mod.ProjectileType<Projectiles.ShadowSparkle>();

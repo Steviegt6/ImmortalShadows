@@ -15,7 +15,7 @@ namespace ImmortalShadows.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			item.damage = 300;
+			item.damage = 280;
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
@@ -23,7 +23,7 @@ namespace ImmortalShadows.Items.Weapons
 			item.useAnimation = 18;
 			item.useStyle = 1;
 			item.knockBack = 5;
-			item.value = Item.sellPrice(gold: 90);
+			item.value = Item.sellPrice(gold: 40);
 			item.rare = 11;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;

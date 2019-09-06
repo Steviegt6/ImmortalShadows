@@ -26,7 +26,7 @@ namespace ImmortalShadows.Items.Weapons
 			item.useStyle = 5;
 			item.noMelee = true;
 			item.knockBack = 0;
-			item.value = Item.sellPrice(gold: 80);
+			item.value = Item.sellPrice(gold: 40);
 			item.rare = 11;
 			item.UseSound = SoundID.Item34;
 			item.autoReuse = true;
