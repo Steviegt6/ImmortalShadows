@@ -37,11 +37,5 @@ namespace ImmortalShadows
                  censusMod.Call("TownNPCCondition", NPCType("Shadow Creature"), "Have a Shadow Chunk in your inventory");
             }
         }
-
-		public override void Unload()
-		{
-			Instance = null;
-			instance = null;
-		}
 	}
 }
