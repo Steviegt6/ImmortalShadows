@@ -10,14 +10,15 @@ namespace ImmortalShadows.Items
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Endgame Bonus Bag");
-			Tooltip.SetDefault("<right> for 10 hard to get items and some money!");
+			Tooltip.SetDefault("<right> for 10 hard to get items!");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.width = 20;
-			item.height = 18;
+			item.width = 32;
+			item.height = 32;
 			item.rare = -12;
+			item.expert = true;
 		}
 
 		public override bool CanRightClick() 
@@ -31,7 +32,6 @@ namespace ImmortalShadows.Items
 			player.QuickSpawnItem(ItemID.FrostsparkBoots);
 			player.QuickSpawnItem(ItemID.LavaWaders);
 			player.QuickSpawnItem(ItemID.CellPhone);
-			player.QuickSpawnItem(ItemID.PlatinumCoin, 10);
 			player.QuickSpawnItem(ItemID.FireGauntlet);
 			player.QuickSpawnItem(ItemID.SniperScope);
 			player.QuickSpawnItem(ItemID.CelestialStone);
@@ -45,6 +45,7 @@ namespace ImmortalShadows.Items
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.LunarBar, 50);
 			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 100);
+			recipe.AddIngredient(ItemID.MoonLordBossBag);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

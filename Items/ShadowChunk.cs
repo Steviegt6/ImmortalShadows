@@ -19,7 +19,7 @@ namespace ImmortalShadows.Items
             item.width = 16;
             item.height = 20;
             item.maxStack = 999;
-            item.value = Item.sellPrice(silver: 40);
+            item.value = Item.sellPrice(silver: 50);
             item.rare = 10;
         }
     }

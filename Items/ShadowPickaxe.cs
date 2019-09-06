@@ -23,7 +23,7 @@ namespace ImmortalShadows.Items
 			item.pick = 235;
 			item.useStyle = 1;
 			item.knockBack = 5;
-			item.value = Item.sellPrice(gold: 20);
+			item.value = Item.sellPrice(gold: 10);
 			item.rare = 11;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;

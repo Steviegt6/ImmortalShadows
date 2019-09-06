@@ -17,7 +17,7 @@ namespace ImmortalShadows.Items
 		{
 			item.width = 22;
 			item.height = 20;
-			item.value = Item.sellPrice(gold: 50);
+			item.value = Item.sellPrice(gold: 25);
 			item.rare = 11;
 			item.accessory = true;
 		}

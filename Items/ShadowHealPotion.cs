@@ -26,7 +26,7 @@ namespace ImmortalShadows.Items
 			item.rare = 11;
 			item.healLife = 230;
 			item.potion = true;
-			item.value = Item.sellPrice(silver: 50);
+			item.value = Item.sellPrice(silver: 65);
 		}
 		
 		public override void AddRecipes() 
