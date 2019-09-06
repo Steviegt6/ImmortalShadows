@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
@@ -12,8 +11,7 @@ namespace ImmortalShadows.Items.Accessories
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Dark Ankh Shield");
-			Tooltip.SetDefault("Ah! Wow! Whoa! It's a 'shield'."
-				+ "\n" + Language.GetTextValue("CommonItemTooltip.PercentIncreasedDamage", 20)
+			Tooltip.SetDefault("One shield to rule them all."
 				+ "\nGrants immunity to knockback and fire blocks"
 				+ "\nGrants immunity to most debuffs"
 				+ "\n+50 max mana"
@@ -35,7 +33,6 @@ namespace ImmortalShadows.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual) 
 		{
-				player.allDamage += 0.2f;
 				player.statManaMax2 += 50;
 				player.maxMinions++;
 		}
@@ -44,7 +41,6 @@ namespace ImmortalShadows.Items.Accessories
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.AnkhShield);
-			recipe.AddIngredient(ItemID.AvengerEmblem);
 			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 25);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
