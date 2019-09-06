@@ -21,20 +21,24 @@ namespace ImmortalShadows.Items.Armor
 			item.height = 18;
 			item.value = Item.sellPrice(gold: 10);;
 			item.rare = 11;
-			item.defense = 22;
+			item.defense = 20;
 		}
 
 		public override void UpdateEquip(Player player) 
 		{
 			player.moveSpeed += 0.10f;
 			player.maxMinions++;
-			player.meleeSpeed += 0.20f;
+			player.meleeSpeed += 0.10f;
 		}
 
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.SolarFlareLeggings);
+			recipe.AddIngredient(ItemID.NebulaLeggings);
+			recipe.AddIngredient(ItemID.VortexLeggings);
+			recipe.AddIngredient(ItemID.StardustLeggings);
+			recipe.AddIngredient(ItemID.LunarBar, 12);
 			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 12);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);

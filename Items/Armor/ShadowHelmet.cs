@@ -12,7 +12,7 @@ namespace ImmortalShadows.Items.Armor
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Shadowflare Helmet");
-			Tooltip.SetDefault("20% increased critical strike chance"
+			Tooltip.SetDefault("15% increased critical strike chance"
 			    + "\n+1 max minions");
 		}
 
@@ -22,14 +22,14 @@ namespace ImmortalShadows.Items.Armor
 			item.height = 18;
 			item.value = Item.sellPrice(gold: 15);;
 			item.rare = 11;
-			item.defense = 26;
+			item.defense = 25;
 		}
 
 		public override void UpdateEquip(Player player) 
 		{
-			player.meleeCrit += 20;
-			player.magicCrit += 20;
-			player.rangedCrit += 20;
+			player.meleeCrit += 15;
+			player.magicCrit += 15;
+			player.rangedCrit += 15;
 			player.maxMinions++;
 		}
 		
@@ -49,6 +49,10 @@ namespace ImmortalShadows.Items.Armor
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.SolarFlareHelmet);
+			recipe.AddIngredient(ItemID.NebulaHelmet);
+			recipe.AddIngredient(ItemID.VortexHelmet);
+			recipe.AddIngredient(ItemID.StardustHelmet);
+			recipe.AddIngredient(ItemID.LunarBar, 8);
 			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 8);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
