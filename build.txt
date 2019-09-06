@@ -1,7 +1,8 @@
 author = Immortal Phoenix
-version = 0.4.4
-displayName = Immortal Shadows (Beta)
+version = 1.0
+displayName = Immortal Shadows (1000 downloads!)
 homepage = https://discord.gg/u48D2JZ
-buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .vscode\*
 includeSource = true
 hideCode = false
+

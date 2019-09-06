@@ -20,16 +20,28 @@ namespace ImmortalShadows
 	{
 		public ImmortalShadows()
 		{
-			
+			Properties = new ModProperties()
+			{
+				Autoload = true,
+				AutoloadGores = true,
+				AutoloadSounds = true
+			};
 		}
 		
         public override void PostSetupContent()
         {
+            //Cenus support
             Mod censusMod = ModLoader.GetMod("Census");
             if(censusMod != null)
             {
-                 censusMod.Call("TownNPCCondition", NPCType("Shadow Creature"), "Have a shadow chunk in your inventory");
+                 censusMod.Call("TownNPCCondition", NPCType("Shadow Creature"), "Have a Shadow Chunk in your inventory");
             }
         }
+
+		public override void Unload()
+		{
+			Instance = null;
+			instance = null;
+		}
 	}
 }
