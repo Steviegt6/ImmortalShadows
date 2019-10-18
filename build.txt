@@ -1,6 +1,6 @@
-author = Immortal Phoenix
-version = 1.0
-displayName = Immortal Shadows (1000 downloads!)
+author = Bread Man
+version = 1.0.1
+displayName = Immortal Shadows
 homepage = https://discord.gg/u48D2JZ
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .vscode\*
 includeSource = true
