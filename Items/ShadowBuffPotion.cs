@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items
 {
@@ -26,7 +27,7 @@ namespace ImmortalShadows.Items
             item.consumable = true;
             item.rare = 11;
             item.value = Item.sellPrice(gold: 1);
-            item.buffType = mod.BuffType<Buffs.ShadowBuff>();
+            item.buffType = BuffType<Buffs.ShadowBuff>();
             item.buffTime = 36000;
         }
 		
