@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Weapons
 {
@@ -37,7 +38,7 @@ namespace ImmortalShadows.Items.Weapons
 
 			item.UseSound = SoundID.Item1;
 			item.value = Item.sellPrice(gold: 55);
-			item.shoot = mod.ProjectileType<TerraYoyoProjectile>();			
+			item.shoot = ProjectileType<Projectiles.TerraYoyoProjectile>();			
 		}
 
 		public override void AddRecipes() 
