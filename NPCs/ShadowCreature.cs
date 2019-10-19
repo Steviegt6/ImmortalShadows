@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.NPCs
 {
@@ -163,7 +164,7 @@ namespace ImmortalShadows.NPCs
 
 		public override void NPCLoot() 
 		{
-			Item.NewItem(npc.getRect(), mod.ItemType<Items.ShadowChunk>());
+			Item.NewItem(npc.getRect(), ItemType<Items.ShadowChunk>());
 		}
 
 		public override bool CanGoToStatue(bool toKingStatue) 
