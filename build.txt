@@ -1,7 +1,7 @@
 author = Bread Man
-version = 1.0.1
+version = 1.0.2.1
 displayName = Immortal Shadows
-homepage = https://discord.gg/u48D2JZ
+homepage = https://github.com/BreadMan1205/ImmortalShadows
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .vscode\*
 includeSource = true
 hideCode = false

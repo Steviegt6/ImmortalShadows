@@ -7,7 +7,7 @@ Current content:
 1 tile
 3 buffs
 
-Changelogs are in the discord server (homepage)
+Changelogs are in the discord server, a link is provided in the homepage
 
 Credits:
 Example Mod for teaching me how to code
