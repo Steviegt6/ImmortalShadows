@@ -1,7 +1,7 @@
-author = Bread Man
-version = 1.0.2.1
+author = Falcon
+version = 1.0.2.2
 displayName = Immortal Shadows
-homepage = https://github.com/BreadMan1205/ImmortalShadows
+homepage = https://github.com/Falcon1205/ImmortalShadows
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .vscode\*
 includeSource = true
 hideCode = false
