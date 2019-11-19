@@ -77,13 +77,13 @@ namespace ImmortalShadows.NPCs
 			switch (WorldGen.genRand.Next(4)) 
 			{
 				case 0:
-					return "Dave";
+					return "Shayde";
 				case 1:
-					return "Dan";
+					return "Shayde";
 				case 2:
-					return "Max";
+					return "Shayde";
 				default:
-					return "Robert";
+					return "Shayde";
 			}
 		}
 
