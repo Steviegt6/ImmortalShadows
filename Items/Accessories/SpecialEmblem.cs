@@ -36,7 +36,8 @@ namespace ImmortalShadows.Items.Accessories
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.DestroyerEmblem);
-			recipe.AddIngredient(ItemID.LunarBar, 10);
+			recipe.AddIngredient(ItemID.LunarBar, 20);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 20);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
