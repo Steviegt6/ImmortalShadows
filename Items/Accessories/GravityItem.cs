@@ -94,7 +94,7 @@ namespace ImmortalShadows.Items.Accessories
 			ModRecipe recipe = new ModRecipe (mod);
 			recipe.AddIngredient(ItemID.GravityGlobe, 2);
 			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 30);
-			recipe.AddIngredient(ItemID.LunarBar, 30);
+			recipe.AddIngredient(ItemID.LunarBar, 15);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
