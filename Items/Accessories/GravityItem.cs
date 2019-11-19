@@ -10,7 +10,7 @@ namespace ImmortalShadows.Items.Accessories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gravity Globe EX");
-            Tooltip.SetDefault("Makes gravity commit die");
+            Tooltip.SetDefault("Gravity no longer affects you");
         }
         public override void SetDefaults()
         {
@@ -94,6 +94,7 @@ namespace ImmortalShadows.Items.Accessories
 			ModRecipe recipe = new ModRecipe (mod);
 			recipe.AddIngredient(ItemID.GravityGlobe, 2);
 			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 30);
+			recipe.AddIngredient(ItemID.LunarBar, 30);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
