@@ -42,7 +42,7 @@ namespace ImmortalShadows.Items
 			recipe.AddIngredient(ItemID.SwiftnessPotion);
 			recipe.AddIngredient(ItemID.LifeforcePotion);
 			recipe.AddIngredient(ItemID.SummoningPotion);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 5);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 50);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this, 2);
 			recipe.AddRecipe();
