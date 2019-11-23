@@ -47,7 +47,7 @@ namespace ImmortalShadows.Items
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.WingsSolar);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 15);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 25);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

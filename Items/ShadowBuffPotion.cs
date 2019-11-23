@@ -26,7 +26,7 @@ namespace ImmortalShadows.Items
             item.maxStack = 99;
             item.consumable = true;
             item.rare = 11;
-            item.value = Item.sellPrice(gold: 1);
+            item.value = Item.sellPrice(gold: 5);
             item.buffType = BuffType<Buffs.ShadowBuff>();
             item.buffTime = 36000;
         }

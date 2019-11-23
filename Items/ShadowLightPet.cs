@@ -34,7 +34,8 @@ namespace ImmortalShadows.Items
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.SuspiciousLookingTentacle);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 20);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 40);
+			recipe.AddIngredient(ItemID.LifeFruit, 10);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
