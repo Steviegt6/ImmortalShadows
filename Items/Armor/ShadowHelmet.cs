@@ -53,7 +53,7 @@ namespace ImmortalShadows.Items.Armor
 			recipe.AddIngredient(ItemID.VortexHelmet);
 			recipe.AddIngredient(ItemID.StardustHelmet);
 			recipe.AddIngredient(ItemID.LunarBar, 8);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 8);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 10);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
