@@ -1,5 +1,5 @@
 using System;
-using ImmortalShadows.Items;
+using ImmortalShadows.Items.ShadowMiniBoss;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -164,7 +164,7 @@ namespace ImmortalShadows.NPCs
 
 		public override void NPCLoot() 
 		{
-			Item.NewItem(npc.getRect(), ItemType<Items.ShadowChunk>());
+			Item.NewItem(npc.getRect(), ItemType<ShadowChunk>());
 		}
 
 		public override bool CanGoToStatue(bool toKingStatue) 
