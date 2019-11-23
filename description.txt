@@ -6,6 +6,7 @@ Current content:
 2 NPCs
 1 tile
 3 buffs
+1 Miniboss
 
 Changelogs are in the discord server, a link is provided at the homepage
 
