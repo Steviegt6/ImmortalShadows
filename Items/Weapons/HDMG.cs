@@ -38,7 +38,7 @@ namespace ImmortalShadows.Items.Weapons
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 10);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 35);
 			recipe.AddIngredient(ItemID.SDMG);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);

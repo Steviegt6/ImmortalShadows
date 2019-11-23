@@ -40,7 +40,7 @@ namespace ImmortalShadows.Items.Weapons
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.NebulaBlaze);
 			recipe.AddIngredient(ItemID.SpectreStaff);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 10);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 32);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

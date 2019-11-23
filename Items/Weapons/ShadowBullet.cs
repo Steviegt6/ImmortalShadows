@@ -33,7 +33,7 @@ namespace ImmortalShadows.Items.Weapons
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.MoonlordBullet, 70);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 2);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 5);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this, 70);
 			recipe.AddRecipe();

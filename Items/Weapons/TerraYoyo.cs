@@ -38,7 +38,7 @@ namespace ImmortalShadows.Items.Weapons
 
 			item.UseSound = SoundID.Item1;
 			item.value = Item.sellPrice(gold: 55);
-			item.shoot = ProjectileType<Projectiles.TerraYoyoProjectile>();			
+			item.shoot = ProjectileType<TerraYoyoProjectile>();			
 		}
 
 		public override void AddRecipes() 
@@ -47,6 +47,7 @@ namespace ImmortalShadows.Items.Weapons
 			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 10);
 			recipe.AddIngredient(ItemID.Terrarian);
 			recipe.AddIngredient(ItemID.SoulofLight, 5);
+			recipe.AddIngredient(ItemID.SoulofSight, 5);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

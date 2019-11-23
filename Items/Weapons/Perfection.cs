@@ -41,7 +41,7 @@ namespace ImmortalShadows.Items.Weapons
 			recipe.AddIngredient(ItemID.CopperShortsword);
 			recipe.AddIngredient(ItemID.Meowmere);
 			recipe.AddIngredient(ItemID.TerraBlade);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 10);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 45);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

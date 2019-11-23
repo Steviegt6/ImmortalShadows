@@ -52,5 +52,16 @@ namespace ImmortalShadows.Items.Weapons
 			}
 			return base.UseItem(player);
 		}
+		
+		public override void AddRecipes() 
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.StardustCellStaff);
+			recipe.AddIngredient(ItemID.StardustDragonStaff);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 30);
+			recipe.AddTile(TileID.LunarCraftingStation);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
 	}
 }

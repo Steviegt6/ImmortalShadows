@@ -33,6 +33,7 @@ namespace ImmortalShadows.Items.Weapons
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("ShadowBullet"), 3996);
+			recipe.AddIngredient(ItemID.SoulofMight, 15);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
