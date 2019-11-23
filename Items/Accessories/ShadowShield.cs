@@ -33,8 +33,20 @@ namespace ImmortalShadows.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual) 
 		{
-				player.statManaMax2 += 50;
-				player.maxMinions++;
+			player.statManaMax2 += 50;
+			player.maxMinions++;
+			buffImmune[46] = true;
+			noKnockback = true;
+			fireWalk = true;
+			buffImmune[33] = true;
+			buffImmune[36] = true;
+			buffImmune[30] = true;
+			buffImmune[20] = true;
+			buffImmune[32] = true;
+			buffImmune[31] = true;
+			buffImmune[35] = true;
+			buffImmune[23] = true;
+			buffImmune[22] = true;
 		}
 
 		public override void AddRecipes() 
@@ -42,7 +54,7 @@ namespace ImmortalShadows.Items.Accessories
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.AnkhShield);
 			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 40);
-			recipe.AddIngredient(ItemID.LunarBar, 30)
+			recipe.AddIngredient(ItemID.LunarBar, 30);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
