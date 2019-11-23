@@ -21,13 +21,13 @@ namespace ImmortalShadows.NPCs.ShadowMiniBoss
 		public override void SetDefaults() 
 		{
 			npc.aiStyle = 56;
-			npc.lifeMax = 40000;
-			npc.damage = 195;
-			npc.defense = 25;
+			npc.lifeMax = 45000;
+			npc.damage = 200;
+			npc.defense = 32;
 			npc.knockBackResist = 0f;
 			npc.width = 28;
 			npc.height = 52;
-			npc.value = Item.buyPrice(0, 20, 0, 0);
+			npc.value = Item.buyPrice(0, 18, 0, 0);
 			npc.npcSlots = 2f;
 			npc.boss = true;
 			npc.lavaImmune = true;
