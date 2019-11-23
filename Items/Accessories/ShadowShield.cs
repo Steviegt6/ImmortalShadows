@@ -25,7 +25,7 @@ namespace ImmortalShadows.Items.Accessories
 			item.shieldSlot = temp;
 			item.width = 30;
 			item.height = 34;
-			item.value = Item.sellPrice(gold: 45);
+			item.value = Item.sellPrice(gold: 35);
 			item.rare = 11;
 			item.accessory = true;
 			item.defense = 10;
@@ -35,18 +35,18 @@ namespace ImmortalShadows.Items.Accessories
 		{
 			player.statManaMax2 += 50;
 			player.maxMinions++;
-			buffImmune[46] = true;
-			noKnockback = true;
-			fireWalk = true;
-			buffImmune[33] = true;
-			buffImmune[36] = true;
-			buffImmune[30] = true;
-			buffImmune[20] = true;
-			buffImmune[32] = true;
-			buffImmune[31] = true;
-			buffImmune[35] = true;
-			buffImmune[23] = true;
-			buffImmune[22] = true;
+			player.buffImmune[46] = true;
+			player.noKnockback = true;
+			player.fireWalk = true;
+			player.buffImmune[33] = true;
+			player.buffImmune[36] = true;
+			player.buffImmune[30] = true;
+			player.buffImmune[20] = true;
+			player.buffImmune[32] = true;
+			player.buffImmune[31] = true;
+			player.buffImmune[35] = true;
+			player.buffImmune[23] = true;
+			player.buffImmune[22] = true;
 		}
 
 		public override void AddRecipes() 
