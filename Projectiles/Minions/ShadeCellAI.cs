@@ -7,6 +7,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
+//Code burrowed from example mod until I git gud
 namespace ImmortalShadows.Projectiles.Minions
 {
 	public abstract class ShadeCellAI : Minion

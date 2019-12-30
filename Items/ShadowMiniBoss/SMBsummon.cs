@@ -10,7 +10,7 @@ namespace ImmortalShadows.Items.ShadowMiniBoss
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Dark Luminite");
+			DisplayName.SetDefault("Shadow Relic");
 			Tooltip.SetDefault("Summons a Shadow Wraith.");
 			ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
 		}

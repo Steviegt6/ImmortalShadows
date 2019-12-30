@@ -6,9 +6,10 @@ Current content:
 2 NPCs
 1 tile
 3 buffs
-1 Miniboss
+1 miniboss
 
-Changelogs are in the discord server, a link is provided at the homepage
+Changelogs are in the discord server, a link is provided at the homepage (GitHub)
 
 Credits:
-Example Mod for teaching me how to code
+Example Mod/tmod devs, for teaching me how to code.
+Whoever made the AM2R OST, since one of its tracks is used in the mod.
