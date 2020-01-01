@@ -2,11 +2,13 @@ Immortal Shadows is just another content mod.
 It doesn't add much right now, but will hopefully have lots of content in the future!
 
 Current content:
-32 items
-2 NPCs
+36 items
+1 town NPC
+1 enemy
 1 tile
-3 buffs
+1 buff
 1 miniboss
+Post-Moon Lord conent
 
 Changelogs are in the discord server, a link is provided at the homepage (GitHub)
 

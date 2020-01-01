@@ -1,5 +1,5 @@
 author = Falcon
-version = 1.1.1
+version = 1.2
 displayName = Immortal Shadows
 homepage = https://github.com/Falcon1205/ImmortalShadows
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .vscode\*
