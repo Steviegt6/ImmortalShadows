@@ -23,7 +23,7 @@ namespace ImmortalShadows.Buffs
 
 		public override void Update(Player player, ref int buffIndex) 
 		{
-			 player.statLifeMax2 += 50;
+			 player.statLifeMax2 += 25;
 			
 			player.GetModPlayer<ShadowPlayer>().shadowLightPet = true;
 			player.buffTime[buffIndex] = 18000;

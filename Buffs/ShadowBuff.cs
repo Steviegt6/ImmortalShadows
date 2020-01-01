@@ -19,10 +19,10 @@ namespace ImmortalShadows.Buffs
 			    + "\nGrants water breathing"
 				+ "\nIncreases life regen"
 				+ "\n50% increased movement speed"
-				+ "\nIncreases max life by 50"
-				+ "\n15% increased critical strike chance"
-				+ "\n15% increased damage"
-				+ "\n+2 max minions");
+				+ "\nIncreases max life by 25"
+				+ "\n10% increased critical strike chance"
+				+ "\n10% increased damage"
+				+ "\n+1 max minions");
 				
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
@@ -38,22 +38,17 @@ namespace ImmortalShadows.Buffs
 			
 			player.gills = true;
 			
-			player.statLifeMax2 += 50;
+			player.statLifeMax2 += 25;
+
+            player.allDamage += 0.10f;
 			
-			player.maxMinions += 2;
-            player.minionDamage += 0.15f;
+			player.maxMinions += 1;
 
-            player.meleeCrit += 15;
-            player.meleeDamage += 0.15f;
+            player.meleeCrit += 10;
+            player.rangedCrit += 10;
+            player.thrownCrit += 10;
+            player.magicCrit += 10;
 
-            player.rangedCrit += 15;
-            player.rangedDamage += 0.15f;
-
-            player.thrownCrit += 15;
-            player.thrownDamage += 0.15f;
-
-            player.magicCrit += 15;
-            player.magicDamage += 0.15f;
         }
     }
 }
