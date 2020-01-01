@@ -1,18 +1,19 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.GameContent.Dyes;
-using Terraria.GameContent.UI;
+using Terraria.DataStructures;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
+using ImmortalShadows.NPCs.ShadowAmalg;
+using ImmortalShadows.Items.ShadowAmalg;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows
 {
@@ -36,6 +37,12 @@ namespace ImmortalShadows
             {
                  censusMod.Call("TownNPCCondition", NPCType("Shadow Creature"), "Have a Shadow Chunk in your inventory");
             }
-        }
+
+			Mod bossList = ModLoader.GetMod("BossChecklist");
+			if (bossList != null)
+			{
+				bossList.Call("AddBossWithInfo", "Shadow Amalgamation", 14.0f, (Func<bool>)(() => ShadowWorld.downedShadowAmalg), string.Format("Use a [i:{0}] after beating the Moon Lord", ItemType("SAsummon")));
+			}
+		}
 	}
 }
