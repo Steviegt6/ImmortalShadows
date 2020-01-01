@@ -12,7 +12,7 @@ namespace ImmortalShadows.Items.Weapons
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("True Terrarian");
-			Tooltip.SetDefault("Charged with the power of terraria");
+			Tooltip.SetDefault("Charged with the power of Terraria");
 
 			ItemID.Sets.Yoyo[item.type] = true;
 			ItemID.Sets.GamepadExtraRange[item.type] = 15;
@@ -28,7 +28,7 @@ namespace ImmortalShadows.Items.Weapons
 			item.useTime = 25;
 			item.shootSpeed = 16f;
 			item.knockBack = 2.5f;
-			item.damage = 400;
+			item.damage = 300;
 			item.rare = 11;
 
 			item.melee = true;

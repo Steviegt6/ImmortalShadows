@@ -16,7 +16,7 @@ namespace ImmortalShadows.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			item.damage = 118;
+			item.damage = 168;
 			item.ranged = true;
 			item.width = 66;
 			item.height = 32;
@@ -38,8 +38,9 @@ namespace ImmortalShadows.Items.Weapons
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 35);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 18);
 			recipe.AddIngredient(ItemID.SDMG);
+			recipe.AddIngredient(ItemID.VortexBeater);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

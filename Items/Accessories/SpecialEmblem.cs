@@ -11,8 +11,8 @@ namespace ImmortalShadows.Items.Accessories
 		{
 			DisplayName.SetDefault("Celebration Emblem");
 			Tooltip.SetDefault("Made to commemorate 1000 downloads"
-			    + "\n20% increased damage"
-				+ "\n20% increased critical strike chance");
+			    + "\n15% increased damage"
+				+ "\n15% increased critical strike chance");
 		}
 
 		public override void SetDefaults() 
@@ -26,10 +26,10 @@ namespace ImmortalShadows.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual) 
 		{
-			player.allDamage += 0.20f;
-			player.meleeCrit += 20;
-			player.rangedCrit += 20;
-			player.magicCrit += 20;
+			player.allDamage += 0.15f;
+			player.meleeCrit += 15;
+			player.rangedCrit += 15;
+			player.magicCrit += 15;
 		}
 
 		public override void AddRecipes() 

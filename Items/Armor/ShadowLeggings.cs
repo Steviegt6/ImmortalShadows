@@ -21,7 +21,7 @@ namespace ImmortalShadows.Items.Armor
 			item.height = 18;
 			item.value = Item.sellPrice(gold: 10);;
 			item.rare = 11;
-			item.defense = 20;
+			item.defense = 22;
 		}
 
 		public override void UpdateEquip(Player player) 

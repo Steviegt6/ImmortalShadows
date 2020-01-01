@@ -34,7 +34,8 @@ namespace ImmortalShadows.Items
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.Diamond, 12);
+			recipe.AddIngredient(ItemID.Wood, 2);
+			recipe.AddIngredient(ItemID.Diamond, 3);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

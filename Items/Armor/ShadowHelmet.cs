@@ -18,11 +18,11 @@ namespace ImmortalShadows.Items.Armor
 
 		public override void SetDefaults() 
 		{
-			item.width = 18;
-			item.height = 18;
+			item.width = 26;
+			item.height = 24;
 			item.value = Item.sellPrice(gold: 15);;
 			item.rare = 11;
-			item.defense = 25;
+			item.defense = 26;
 		}
 
 		public override void UpdateEquip(Player player) 

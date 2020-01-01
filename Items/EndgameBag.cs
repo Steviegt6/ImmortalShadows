@@ -46,6 +46,7 @@ namespace ImmortalShadows.Items
 			recipe.AddIngredient(ItemID.LunarBar, 999);
 			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 999);
 			recipe.AddIngredient(ItemID.MoonLordBossBag, 2);
+			recipe.AddIngredient(ItemID.GoldCoin, 99);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

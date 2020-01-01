@@ -12,12 +12,12 @@ namespace ImmortalShadows.Items.Weapons
 			DisplayName.SetDefault("Shade Saber");
 			Tooltip.SetDefault("That's gonna leave a mark."
 			    + "\nTrue melee weapon"
-				+ "\nInflicts ichor on enemies");
+				+ "\nInflicts Ichor and Shadowflame on enemies");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.damage = 600;
+			item.damage = 500;
 			item.melee = true;
 			item.width = 50;
 			item.height = 50;
@@ -37,8 +37,7 @@ namespace ImmortalShadows.Items.Weapons
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 45);
-			recipe.AddIngredient(ItemID.LunarBar, 10);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 50);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -54,7 +53,8 @@ namespace ImmortalShadows.Items.Weapons
 		
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit) 
 		{
-			target.AddBuff(BuffID.Ichor, 600);
+			target.AddBuff(BuffID.Ichor, 1200);
+			target.AddBuff(BuffID.ShadowFlame, 1200);
 		}
 	}
 }

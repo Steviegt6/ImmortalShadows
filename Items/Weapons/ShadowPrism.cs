@@ -17,11 +17,11 @@ namespace ImmortalShadows.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			item.damage = 300;
+			item.damage = 200;
 			item.noMelee = true;
 			item.magic = true;
 			item.channel = true;
-			item.mana = 14;
+			item.mana = 2;
 			item.rare = 11;
 			item.width = 16;
 			item.height = 16;
@@ -31,7 +31,7 @@ namespace ImmortalShadows.Items.Weapons
 			item.shootSpeed = 30f;
 			item.useAnimation = 10;
 			item.shoot = ProjectileType<ShadowDeathLaser>();
-			item.value = Item.sellPrice(gold: 25);
+			item.value = Item.sellPrice(gold: 35);
 			item.reuseDelay = 5;
 			item.knockBack = 0f;
 		}

@@ -28,7 +28,7 @@ namespace ImmortalShadows.Items.Accessories
 			item.value = Item.sellPrice(gold: 35);
 			item.rare = 11;
 			item.accessory = true;
-			item.defense = 10;
+			item.defense = 6;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual) 
