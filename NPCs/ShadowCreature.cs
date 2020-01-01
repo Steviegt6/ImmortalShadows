@@ -1,5 +1,5 @@
 using System;
-using ImmortalShadows.Items.ShadowMiniBoss;
+using ImmortalShadows.Items.ShadowAmalg;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -49,6 +49,8 @@ namespace ImmortalShadows.NPCs
 			npc.DeathSound = SoundID.NPCDeath1;
 			npc.knockBackResist = 0.5f;
 			animationType = NPCID.Guide;
+
+			npc.buffImmune[153] = true;
 		}
 
 		public override bool CanTownNPCSpawn(int numTownNPCs, int money) 
