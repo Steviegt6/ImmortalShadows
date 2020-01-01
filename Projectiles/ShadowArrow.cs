@@ -6,31 +6,27 @@ using Terraria.ModLoader;
 
 namespace ImmortalShadows.Projectiles
 {
-	public class ShadowBullet : ModProjectile
+	public class ShadowArrow : ModProjectile
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Shadow Bullet");     
+			DisplayName.SetDefault("Shadow Arrow");     
 			ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 		}
 
 		public override void SetDefaults() 
 		{
-			projectile.width = 6;              
-			projectile.height = 6;              
+			projectile.width = 14;              
+			projectile.height = 34;              
 			projectile.aiStyle = 1;            
 			projectile.friendly = true;         
 			projectile.hostile = false;         
-			projectile.ranged = true;           
-			projectile.penetrate = 5;           
-			projectile.timeLeft = 600;          
-			projectile.alpha = 255;             
-			projectile.light = 0.5f;           
+			projectile.ranged = true;
+			projectile.penetrate = 5;
+			projectile.timeLeft = 600;                    
 			projectile.ignoreWater = true;          
 			projectile.tileCollide = true;          
-			projectile.extraUpdates = 1;            
-			aiType = ProjectileID.Bullet;      
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity) 
@@ -75,7 +71,7 @@ namespace ImmortalShadows.Projectiles
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			target.AddBuff(BuffID.ShadowFlame, 300, false);
+			target.AddBuff(BuffID.ShadowFlame, 600, false);
 		}
 	}
 }
