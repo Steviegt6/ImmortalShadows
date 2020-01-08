@@ -11,9 +11,11 @@ namespace ImmortalShadows.Items.Armor
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Shadowflare Helmet");
-			Tooltip.SetDefault("15% increased critical strike chance"
-			    + "\n+1 max minions");
+			DisplayName.SetDefault("Shadesteel Helmet");
+			Tooltip.SetDefault("10% increased damage"
+			    + "\n+4 max minions"
+				+ "\n+4 max sentries"
+				+ "\n7% increased critical strike chance");
 		}
 
 		public override void SetDefaults() 
@@ -22,15 +24,21 @@ namespace ImmortalShadows.Items.Armor
 			item.height = 24;
 			item.value = Item.sellPrice(gold: 15);;
 			item.rare = 11;
-			item.defense = 26;
+			item.defense = 25;
+			item.glowMask = 28;
+		}
+
+		public override bool DrawHead()
+		{
+			return false;
 		}
 
 		public override void UpdateEquip(Player player) 
 		{
-			player.meleeCrit += 15;
-			player.magicCrit += 15;
-			player.rangedCrit += 15;
-			player.maxMinions++;
+			player.allDamage += 0.15f;
+			player.maxMinions += 4;
+			player.maxTurrets += 4;
+			player.meleeCrit += 7;
 		}
 		
 		public override bool IsArmorSet(Item head, Item body, Item legs) 
@@ -40,9 +48,8 @@ namespace ImmortalShadows.Items.Armor
 
 		public override void UpdateArmorSet(Player player) 
 		{
-			player.setBonus = "Immune to Moon Bite and +1 max minions";
+			player.setBonus = "Immunity to Moon Bite";
 			player.buffImmune[BuffID.MoonLeech] = true;
-			player.maxMinions++;
 		}
 
 		public override void AddRecipes() 

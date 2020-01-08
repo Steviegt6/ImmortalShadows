@@ -14,7 +14,7 @@ namespace ImmortalShadows.Items.ShadowAmalg
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Shadow Relic");
-			Tooltip.SetDefault("Summons a shadow amalgamation");
+			Tooltip.SetDefault("Summons the shadow amalgamation");
 			ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
 		}
 

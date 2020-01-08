@@ -10,9 +10,10 @@ namespace ImmortalShadows.Items.Armor
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Shadowflare Leggings");
-			Tooltip.SetDefault("+1 max minions"
-				+ "\n10% increased movement and melee speed");
+			DisplayName.SetDefault("Shadesteel Leggings");
+			Tooltip.SetDefault("15% increased melee speed"
+				+ "\n25% chance not to consume ammo"
+			    + "\n30% increased movement speed");
 		}
 
 		public override void SetDefaults() 
@@ -21,14 +22,20 @@ namespace ImmortalShadows.Items.Armor
 			item.height = 18;
 			item.value = Item.sellPrice(gold: 10);;
 			item.rare = 11;
-			item.defense = 22;
+			item.defense = 20;
+			item.glowMask = 30;
+		}
+
+		public override bool DrawLegs()
+		{
+			return false;
 		}
 
 		public override void UpdateEquip(Player player) 
 		{
-			player.moveSpeed += 0.10f;
-			player.maxMinions++;
-			player.meleeSpeed += 0.10f;
+			player.moveSpeed += 0.30f;
+			player.ammoCost75 = true;
+			player.meleeSpeed += 0.15f;
 		}
 
 		public override void AddRecipes() 

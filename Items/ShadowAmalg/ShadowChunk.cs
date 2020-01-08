@@ -11,7 +11,7 @@ namespace ImmortalShadows.Items.ShadowAmalg
         {
 			DisplayName.SetDefault("Shadow Chunk");
             Tooltip.SetDefault("What the heck is this?"
-			    + "\nDrops from Shadow Wraiths");
+			    + "\nDrops from the Shadow Amalgamation");
         }
 
         public override void SetDefaults()

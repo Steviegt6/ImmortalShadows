@@ -11,10 +11,10 @@ namespace ImmortalShadows.Items.Armor
 		public override void SetStaticDefaults() 
 		{
 			base.SetStaticDefaults();
-			DisplayName.SetDefault("Shadowflare Breastplate");
-			Tooltip.SetDefault("Immunity to 'Ichor'"
-				+ "\n+35 max mana and +1 max minions"
-				+ "\n20% increased damage");
+			DisplayName.SetDefault("Shadesteel Breastplate");
+			Tooltip.SetDefault("+50 max mana"
+				+ "\n20% increased damage"
+				+ "\n15% reduced mana usage and massively increased life regen");
 		}
 
 		public override void SetDefaults() 
@@ -23,15 +23,21 @@ namespace ImmortalShadows.Items.Armor
 			item.height = 18;
 			item.value = Item.sellPrice(gold: 20);
 			item.rare = 11;
-			item.defense = 34;
+			item.defense = 30;
+			item.glowMask = 29;
+		}
+
+		public override bool DrawBody()
+		{
+			return false;
 		}
 
 		public override void UpdateEquip(Player player) 
 		{
-			player.buffImmune[BuffID.Ichor] = true;
 			player.statManaMax2 += 35;
-			player.maxMinions++;
 			player.allDamage += 0.20f;
+			player.manaCost -= 0.15f;
+			player.lifeRegen += 16;
 		}
 
 		public override void AddRecipes() 
