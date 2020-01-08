@@ -31,14 +31,15 @@ namespace ImmortalShadows.NPCs
 			bannerItem = Item.BannerToItem(banner);
 		}
 
-		public override float SpawnChance(NPCSpawnInfo spawnInfo) 
+		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
-			return SpawnCondition.OverworldNightMonster.Chance * 0.12f;
+			npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
+			npc.damage = (int)(npc.damage * 0.6f);
 		}
 
 		public override void NPCLoot()
         {
-	        Item.NewItem(npc.getRect(), ItemID.IronBar, 2);
+	        Item.NewItem(npc.getRect(), ItemID.StoneBlock, 6);
         }
 	}
 }

@@ -9,8 +9,7 @@ namespace ImmortalShadows.Projectiles
 	public class ShadowArrow : ModProjectile
 	{
 		public override void SetStaticDefaults() 
-		{
-			DisplayName.SetDefault("Shadow Arrow");     
+		{  
 			ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 		}

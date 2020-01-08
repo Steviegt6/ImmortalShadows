@@ -9,8 +9,7 @@ namespace ImmortalShadows.Projectiles
 	public class ShadowBullet : ModProjectile
 	{
 		public override void SetStaticDefaults() 
-		{
-			DisplayName.SetDefault("Shadow Bullet");     
+		{    
 			ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 		}

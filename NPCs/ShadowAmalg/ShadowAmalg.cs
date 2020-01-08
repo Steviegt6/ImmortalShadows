@@ -6,6 +6,8 @@ using Terraria.ID;
 using System.IO;
 using Terraria.ModLoader;
 using ImmortalShadows.Items.ShadowAmalg;
+using ImmortalShadows.Items.Placeable;
+using ImmortalShadows.Items.Armor.Masks;
 using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.NPCs.ShadowAmalg
@@ -24,12 +26,11 @@ namespace ImmortalShadows.NPCs.ShadowAmalg
 			npc.aiStyle = 56;
 			npc.lifeMax = 50000;
 			npc.damage = 250;
-			npc.defense = 55;
+			npc.defense = 50;
 			npc.knockBackResist = 0f;
 			npc.width = 28;
 			npc.height = 52;
 			npc.value = Item.buyPrice(0, 18, 0, 0);
-			npc.npcSlots = 1f;
 			npc.boss = true;
 			npc.lavaImmune = true;
 			npc.noGravity = true;
@@ -37,7 +38,7 @@ namespace ImmortalShadows.NPCs.ShadowAmalg
 			npc.HitSound = SoundID.NPCHit54;
 			npc.DeathSound = SoundID.NPCDeath59;
 			npc.scale = 1.5f;
-			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/musGenesis");
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AM2R/musGenesis");
 			
 			npc.buffImmune[20] = true;
 			npc.buffImmune[70] = true;
@@ -54,11 +55,22 @@ namespace ImmortalShadows.NPCs.ShadowAmalg
 			npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
 			npc.damage = (int)(npc.damage * 0.6f);
 		}
-		
-		public override void NPCLoot() 
+
+		public override void NPCLoot()
 		{
-			Item.NewItem(npc.getRect(), ItemType<ShadowChunk>(), 15);
-			Item.NewItem(npc.getRect(), ItemID.SuperHealingPotion, 5);
+			if (Main.rand.NextBool(10))
+			{
+				Item.NewItem(npc.getRect(), ItemType<ShadowAmalgTrophy>());
+			}
+			else 
+			{
+				if (Main.rand.NextBool(7))
+				{
+					Item.NewItem(npc.getRect(), ItemType<ShadowAmalgMask>());
+				}
+				Item.NewItem(npc.getRect(), ItemType<ShadowChunk>(), 18 + Main.rand.Next(8));
+				Item.NewItem(npc.getRect(), ItemID.SuperHealingPotion, 5 + Main.rand.Next(6));
+			}
 			if (!ShadowWorld.downedShadowAmalg)
 			{
 				ShadowWorld.downedShadowAmalg = true;

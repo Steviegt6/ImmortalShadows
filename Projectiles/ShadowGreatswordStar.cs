@@ -7,11 +7,6 @@ namespace ImmortalShadows.Projectiles
 {
 	public class ShadowGreatswordStar : ModProjectile
 	{
-		public override void SetStaticDefaults() 
-		{
-			DisplayName.SetDefault("Shadow Greatsword Star");
-		}
-
 		public override void SetDefaults() 
 		{
 			projectile.CloneDefaults(503);
