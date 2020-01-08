@@ -1,8 +1,8 @@
 author = Falcon
-version = 1.2
+version = 1.2.1
 displayName = Immortal Shadows
 homepage = https://github.com/Falcon1205/ImmortalShadows
-buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .vscode\*
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .vscode\*, *.sln
 includeSource = true
 hideCode = false
 

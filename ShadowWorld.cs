@@ -20,10 +20,12 @@ namespace ImmortalShadows
 	public class ShadowWorld : ModWorld
 	{
 		public static bool downedShadowAmalg;
+		public static bool downedBoulderBoss;
 
 		public override void Initialize() 
 		{
 			downedShadowAmalg = false;
+			downedBoulderBoss = false;
 		}
 
 		public override TagCompound Save() 
@@ -32,6 +34,11 @@ namespace ImmortalShadows
 			if (downedShadowAmalg) 
 			{
 				downed.Add("shadowAmalg");
+			}
+
+			if (downedBoulderBoss)
+			{
+				downed.Add("boulderBoss");
 			}
 
 			return new TagCompound 
@@ -44,6 +51,7 @@ namespace ImmortalShadows
 		{
 			var downed = tag.GetList<string>("downed");
 			downedShadowAmalg = downed.Contains("shadowAmalg");
+			downedBoulderBoss = downed.Contains("boulderBoss");
 		}
 
 		public override void LoadLegacy(BinaryReader reader) 
@@ -53,6 +61,7 @@ namespace ImmortalShadows
 			{
 				BitsByte flags = reader.ReadByte();
 				downedShadowAmalg = flags[0];
+				downedBoulderBoss = flags[1];
 			}
 			else 
 			{
@@ -64,6 +73,7 @@ namespace ImmortalShadows
 		{
 			var flags = new BitsByte();
 			flags[0] = downedShadowAmalg;
+			flags[1] = downedBoulderBoss;
 			writer.Write(flags);
 
 			/*
@@ -105,6 +115,7 @@ namespace ImmortalShadows
 		{
 			BitsByte flags = reader.ReadByte();
 			downedShadowAmalg = flags[0];
+			downedBoulderBoss = flags[1];
 			// As mentioned in NetSend, BitBytes can contain 8 values. If you have more, be sure to read the additional data:
 			// BitsByte flags2 = reader.ReadByte();
 			// downed9thBoss = flags[0];

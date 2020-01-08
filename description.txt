@@ -1,17 +1,23 @@
+(Credits and update summaries below)
 Immortal Shadows is just another content mod.
 It doesn't add much right now, but will hopefully have lots of content in the future!
+Full changelogs are in the discord server, a link is provided at the homepage (GitHub)
 
 Current content:
-36 items
-1 town NPC
+48 items
+2 minibosses
 1 enemy
-1 tile
-1 buff
-1 miniboss
-Post-Moon Lord conent
+1 town NPC
+Boss Checklist and Census support
 
-Changelogs are in the discord server, a link is provided at the homepage (GitHub)
+Update summaries:
+
+v1.2.1, The Boulder (and sword) Update: Adds boss log support, a sentient boulder miniboss, enough beam swords for a sword only playthrough to be possible, and buffs 5 vanilla beam swords. It also balances some stuff. 
+
+v1.2, The Rework Update: Completely rebalances the mod, resprites most items (and the miniboss), and adds some things.
+
+v1.1, The Shadow Update: Adds a new shadow miniboss, and balances a lot of recipes.
 
 Credits:
 Example Mod/tmod devs, for teaching me how to code.
-Whoever made the AM2R OST, since one of its tracks is used in the mod.
+Whoever made the AM2R OST, since two of its tracks are used in the mod.
