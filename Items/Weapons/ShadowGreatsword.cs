@@ -9,13 +9,13 @@ namespace ImmortalShadows.Items.Weapons
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Shadow Greatsword");
+			DisplayName.SetDefault("Shade Wrath");
 			Tooltip.SetDefault("Rains death from the sky");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.damage = 255;
+			item.damage = 240;
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
@@ -38,8 +38,7 @@ namespace ImmortalShadows.Items.Weapons
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.StarWrath);
-			recipe.AddIngredient(mod.ItemType("RustySword"));
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 10);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 25);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

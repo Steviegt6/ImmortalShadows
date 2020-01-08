@@ -9,7 +9,7 @@ namespace ImmortalShadows.Items.Weapons
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Infinite Shadow Bullet");
+			DisplayName.SetDefault("Infinite Shadesteel Bullet");
 			Tooltip.SetDefault("Slighty weaker, but you'll never run out!");
 		}
 

@@ -5,39 +5,50 @@ using Terraria.ModLoader;
 
 namespace ImmortalShadows.Items.Weapons
 {
-	public class ShadeSaber : ModItem
+	public class ShadowBlade : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Shade Saber");
-			Tooltip.SetDefault("That's gonna leave a mark."
-			    + "\nTrue melee weapon"
-				+ "\nInflicts Betsy's Curse, Shadowflame and Venom on enemies");
+			DisplayName.SetDefault("Perfected Blade");
+			Tooltip.SetDefault("Shoots a beam that passes through tiles and pierces through a lot of enemies"
+				+ "\nMelee hits inflict Ichor and Daybroken");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.damage = 500;
+			item.damage = 265;
 			item.melee = true;
 			item.width = 50;
 			item.height = 50;
-			item.useTime = 15;
-			item.useAnimation = 15;
+			item.useTime = 13;
+			item.useAnimation = 13;
 			item.useStyle = 1;
 			item.knockBack = 6;
-			item.value = Item.sellPrice(gold: 55);
+			item.value = Item.sellPrice(gold: 35);
 			item.rare = 11;
-			item.UseSound = SoundID.Item1;
+			item.UseSound = SoundID.DD2_SonicBoomBladeSlash;
 			item.autoReuse = true;
-			item.scale = 1.5f;
+			item.shoot = mod.ProjectileType("ShadowBladeProj");
+			item.shootSpeed = 17f;
+			item.scale = 1.3f;
 			item.useTurn = true;
 			item.crit = 14;
+		}
+
+		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
+
+		{
+
+			target.AddBuff(BuffID.Ichor, 1200);
+			target.AddBuff(BuffID.Daybreak, 600);
+
 		}
 
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 50);
+			recipe.AddIngredient(ItemID.Meowmere);
+			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 24);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -50,12 +61,5 @@ namespace ImmortalShadows.Items.Weapons
 				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, mod.DustType("ShadowDust"));
 			}
 		}
-		
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit) 
-		{
-			target.AddBuff(BuffID.BetsysCurse, 1200);
-			target.AddBuff(BuffID.ShadowFlame, 600);
-			target.AddBuff(BuffID.Venom, 300);
-		}
-	}
+	}   
 }

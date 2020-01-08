@@ -12,7 +12,7 @@ namespace ImmortalShadows.Items.Weapons
 		{
 			DisplayName.SetDefault("Last Prism EX");
 			Tooltip.SetDefault("Charges up a beam that disintegrates anything and everything."
-			    + "\nCan drain your mana before it even fully charges");
+			    + "\nGood luck using it without mana potions");
 		}
 
 		public override void SetDefaults() 

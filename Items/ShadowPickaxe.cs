@@ -9,7 +9,7 @@ namespace ImmortalShadows.Items
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Shadowflare Pickaxe");
+			DisplayName.SetDefault("Shadesteel Pickaxe");
 		}
 
 		public override void SetDefaults() 

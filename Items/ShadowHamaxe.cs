@@ -9,7 +9,7 @@ namespace ImmortalShadows.Items
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Shadowflare Hamaxe");
+			DisplayName.SetDefault("Shadesteel Hamaxe");
 		}
 
 		public override void SetDefaults() 

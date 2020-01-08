@@ -10,7 +10,7 @@ namespace ImmortalShadows.Items
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Shadow Hook");
+			DisplayName.SetDefault("Shadesteel Hook");
 		}
 
 		public override void SetDefaults() 

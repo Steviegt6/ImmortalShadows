@@ -9,7 +9,7 @@ namespace ImmortalShadows.Items.Weapons
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Shadow Bullet");
+			DisplayName.SetDefault("Shadesteel Bullet");
 			Tooltip.SetDefault("Pierces, bounces and inflicts Shadowflame on enemies");
 		}
 

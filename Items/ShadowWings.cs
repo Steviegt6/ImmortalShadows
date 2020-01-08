@@ -10,7 +10,7 @@ namespace ImmortalShadows.Items
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Shadowflare Wings");
+			DisplayName.SetDefault("Dark Angel Wings");
 		}
 
 		public override void SetDefaults() 
@@ -46,7 +46,8 @@ namespace ImmortalShadows.Items
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.WingsSolar);
+			recipe.AddIngredient(ItemID.AngelWings);
+			recipe.AddIngredient(ItemID.DemonWings);
 			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 25);
 			recipe.AddIngredient(ItemID.SoulofFlight, 25);
 			recipe.AddTile(TileID.LunarCraftingStation);
