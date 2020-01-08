@@ -10,7 +10,7 @@ Current content:
 1 town NPC
 Boss Checklist and Census support
 
-Update summaries:
+Major Update summaries:
 
 v1.2.1, The Boulder (and sword) Update: Adds boss log support, a sentient boulder miniboss, enough beam swords for a sword only playthrough to be possible, and buffs 5 vanilla beam swords. It also balances some stuff. 
 
