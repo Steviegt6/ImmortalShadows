@@ -42,6 +42,18 @@ namespace ImmortalShadows.Items.ShadowAmalg
 			return true;
 		}
 
+		public override void OnConsumeItem(Player player)
+		{
+			if (ShadowWorld.downedShadowAmalg)
+			{
+				Main.NewText("...", 191, 0, 0);
+			}
+			else
+			{
+				Main.NewText("You are the one i've been looking for...", 191, 0, 0);
+			}
+		}
+
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
