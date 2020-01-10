@@ -1,10 +1,10 @@
-using System;
+using Terraria;
+using Terraria.ModLoader;
+using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ID;
-using System.IO;
-using Terraria.ModLoader;
+using System.Diagnostics;
+using System;
 using ImmortalShadows.Items.ShadowAmalg;
 using ImmortalShadows.Items.Placeable;
 using ImmortalShadows.Items.Armor.Masks;
@@ -15,70 +15,266 @@ namespace ImmortalShadows.NPCs.ShadowAmalg
 	[AutoloadBossHead]
 	public class ShadowAmalg : ModNPC
 	{
+		private int ai;
+		private int attackTimer = 0;
+		private bool fastSpeed = false;
+
+		private bool stunned;
+		private int stunnedTimer;
+
+		private int frame = 0;
+		private double counting;
 
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Shadow Amalgamation");
+			Main.npcFrameCount[npc.type] = 6;
 		}
 
 		public override void SetDefaults() 
 		{
-			npc.aiStyle = 56;
-			npc.lifeMax = 50000;
-			npc.damage = 250;
-			npc.defense = 50;
-			npc.knockBackResist = 0f;
-			npc.width = 28;
-			npc.height = 52;
-			npc.value = Item.buyPrice(0, 18, 0, 0);
+			npc.width = 24;
+			npc.height = 58;
 			npc.boss = true;
+			npc.aiStyle = -1;
+			npc.npcSlots = 5f;
+			npc.lifeMax = 150000;
+			npc.damage = 170;
+			npc.defense = 15;
+			npc.knockBackResist = 0f;
+			npc.value = Item.buyPrice(gold: 18);
 			npc.lavaImmune = true;
-			npc.noGravity = true;
 			npc.noTileCollide = true;
+			npc.noGravity = true;			
 			npc.HitSound = SoundID.NPCHit54;
 			npc.DeathSound = SoundID.NPCDeath59;
-			npc.scale = 1.5f;
-			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AM2R/musGenesis");
-			
-			npc.buffImmune[20] = true;
-			npc.buffImmune[70] = true;
-			npc.buffImmune[31] = true;
-			npc.buffImmune[24] = true;
-			npc.buffImmune[44] = true;
-			npc.buffImmune[30] = true;
-			npc.buffImmune[69] = true;
-			npc.buffImmune[153] = true;
-		}
-		
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) 
-		{
-			npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
-			npc.damage = (int)(npc.damage * 0.6f);
-		}
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AM2R_SRproject/musQueen");
+            bossBag = ItemType<ShadowAmalgBag>();
+            npc.scale = 1.65f;
 
-		public override void NPCLoot()
+			npc.buffImmune[BuffID.Poisoned] = true;
+			npc.buffImmune[BuffID.Venom] = true;
+			npc.buffImmune[BuffID.Confused] = true; 
+			npc.buffImmune[BuffID.OnFire] = true;
+			npc.buffImmune[BuffID.Frostburn] = true;
+			npc.buffImmune[BuffID.Bleeding] = true;
+			npc.buffImmune[BuffID.Ichor] = true;
+			npc.buffImmune[BuffID.ShadowFlame] = true;
+            npc.buffImmune[BuffID.Daybreak] = true;
+        }
+
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            npc.lifeMax = 220000; /*(int)(npc.lifeMax * 0.75f * bossLifeScale);*/
+            npc.damage = 210; /*(int)(npc.damage * 0.75f);*/
+            npc.defense = 18;
+        }
+
+
+        public override void AI()
+        {
+            npc.TargetClosest(true);
+            Player player = Main.player[npc.target];
+            Vector2 target = npc.HasPlayerTarget ? player.Center : Main.npc[npc.target].Center;
+            npc.rotation = 0.0f;
+            npc.netAlways = true;
+            npc.TargetClosest(true);
+            if (npc.life >= npc.lifeMax)
+                npc.life = npc.lifeMax;
+            if (npc.target < 0 || npc.target == 255 || player.dead || !player.active)
+            {
+                npc.TargetClosest(false);
+                npc.direction = 1;
+                npc.velocity.Y = npc.velocity.Y - 0.1f;
+                if (npc.timeLeft > 20)
+                {
+                    npc.timeLeft = 20;
+                    return;
+                }
+            }
+            if (Main.dayTime)
+            {
+                npc.TargetClosest(false);
+                npc.direction = 1;
+                npc.velocity.Y = npc.velocity.Y - 0.1f;
+                if (npc.timeLeft > 20)
+                {
+                    npc.timeLeft = 20;
+                    return;
+                }
+            }
+            if (stunned)
+            {
+                npc.velocity.X = 0.0f;
+                npc.velocity.Y = 0.0f;
+                stunnedTimer++;
+                if (stunnedTimer >= 100)
+                {
+                    stunned = false;
+                    stunnedTimer = 0;
+                }
+            }
+            ai++;
+            npc.ai[0] = (float)ai * 1f;
+            int distance = (int)Vector2.Distance(target, npc.Center);
+            if ((double)npc.ai[0] < 300)
+            {
+                frame = 0;
+                MoveTowards(npc, target, (float)(distance > 300 ? 13f : 7f), 30f);
+                npc.netUpdate = true;
+            }
+            else if ((double)npc.ai[0] >= 300 && (double)npc.ai[0] < 450.0)
+            {
+                stunned = true;
+                frame = 1;
+                MoveTowards(npc, target, (float)(distance > 300 ? 13f : 7f), 30f);
+                npc.netUpdate = true;
+            }
+            else if ((double)npc.ai[0] >= 450.0)
+            {
+                frame = 0;
+                stunned = false;
+                if (!fastSpeed)
+                {
+                    fastSpeed = true;
+                }
+                else
+                {
+                    if ((double)npc.ai[0] % 50 == 0)
+                    {
+                        float speed = 12f;
+                        Vector2 vector = new Vector2(npc.position.X + (float)npc.width * 0.5f, npc.position.Y + (float)npc.height * 0.5f);
+                        float x = player.position.X + (float)(player.width / 2) - vector.X;
+                        float y = player.position.Y + (float)(player.height / 2) - vector.Y;
+                        float distance2 = (float)Math.Sqrt(x * x + y * y);
+                        float factor = speed / distance2;
+                        npc.velocity.X = x * factor;
+                        npc.velocity.Y = y * factor;
+                    }
+                }
+                npc.netUpdate = true;
+            }
+            if ((double)npc.ai[0] % (Main.expertMode ? 100 : 150) == 0 && !stunned && !fastSpeed)
+            {
+                attackTimer++;
+                if (attackTimer <= 2)
+                {
+                    frame = 2;
+                    npc.velocity.X = 0f;
+                    npc.velocity.Y = 0f;
+                    Vector2 shootPos = npc.Center;
+                    float accuracy = 5f * (npc.life / npc.lifeMax);
+                    Vector2 shootVel = target - shootPos + new Vector2(Main.rand.NextFloat(-accuracy, accuracy), Main.rand.NextFloat(-accuracy, accuracy));
+                    shootVel.Normalize();
+                    shootVel *= 7.5f;
+                    for (int i = 0; i < (Main.expertMode ? 5 : 3); i++)
+                    {
+                        Projectile.NewProjectile(shootPos.X + (float)(-100 * npc.direction) + (float)Main.rand.Next(-40, 41), shootPos.Y - (float)Main.rand.Next(-50, 40), shootVel.X, shootVel.Y, mod.ProjectileType("ShadowAmalgProj"), npc.damage / 3, 5f);
+                    }
+                }
+                else
+                {
+                    attackTimer = 0;
+                }
+            }
+
+
+
+            if ((double)npc.ai[0] >= 650.0)
+            {
+                ai = 0;
+                npc.alpha = 0;
+                npc.ai[2] = 0;
+                fastSpeed = false;
+            }
+
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
+            if (frame == 0)
+            {
+                counting += 1.0;
+                if (counting < 8.0)
+                {
+                    npc.frame.Y = 0;
+                }
+                else if (counting < 16.0)
+                {
+                    npc.frame.Y = frameHeight;
+                }
+                else if (counting < 24.0)
+                {
+                    npc.frame.Y = frameHeight * 2;
+                }
+                else if (counting < 32.0)
+                {
+                    npc.frame.Y = frameHeight * 3;
+                }
+                else
+                {
+                    counting = 0.0;
+                }
+            }
+            else if (frame == 1)
+            {
+                npc.frame.Y = frameHeight * 4;
+            }
+            else
+            {
+                npc.frame.Y = frameHeight * 5;
+            }
+        }
+
+        private void MoveTowards(NPC npc, Vector2 playerTarget, float speed, float turnResistance)
+        {
+            var move = playerTarget - npc.Center;
+            float length = move.Length();
+            if (length > speed)
+            {
+                move *= speed / length;
+            }
+            move = (npc.velocity * turnResistance + move) / (turnResistance + 1f);
+            length = move.Length();
+            if (length > speed)
+            {
+                move *= speed / length;
+            }
+            npc.velocity = move;
+        }
+
+
+        public override void NPCLoot()
 		{
 			if (Main.rand.NextBool(10))
 			{
 				Item.NewItem(npc.getRect(), ItemType<ShadowAmalgTrophy>());
 			}
-			else 
+            if (Main.expertMode)
+            {
+                npc.DropBossBags();
+            }
+            else 
 			{
 				if (Main.rand.NextBool(7))
 				{
 					Item.NewItem(npc.getRect(), ItemType<ShadowAmalgMask>());
 				}
-				Item.NewItem(npc.getRect(), ItemType<ShadowChunk>(), 18 + Main.rand.Next(8));
-				Item.NewItem(npc.getRect(), ItemID.SuperHealingPotion, 5 + Main.rand.Next(6));
+				Item.NewItem(npc.getRect(), ItemType<ShadowChunk>(), 22 + Main.rand.Next(16));
 			}
 			if (!ShadowWorld.downedShadowAmalg)
 			{
 				ShadowWorld.downedShadowAmalg = true;
 				if (Main.netMode == NetmodeID.Server)
 				{
-					NetMessage.SendData(MessageID.WorldData); // Immediately inform clients of new world state.
+					NetMessage.SendData(MessageID.WorldData);
 				}
 			}
+		}
+
+		public override void BossLoot(ref string name, ref int potionType)
+		{
+			potionType = ItemID.SuperHealingPotion;
 		}
 
 		public override void OnHitPlayer(Player player, int damage, bool crit) 

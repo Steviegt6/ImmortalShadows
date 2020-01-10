@@ -47,10 +47,10 @@ namespace ImmortalShadows
 			if (bossChecklist != null)
 			{
 				bossChecklist.Call(
-					"AddMiniBoss",
+					"AddBoss",
 					14.1f,
 					ModContent.NPCType<ShadowAmalg>(),
-					this, // Mod
+					this,
 					"Shadow Amalgamation",
 					(Func<bool>)(() => ShadowWorld.downedShadowAmalg),
 					ModContent.ItemType<SAsummon>(),
@@ -58,14 +58,14 @@ namespace ImmortalShadows
 					new List<int> { ModContent.ItemType<ShadowChunk>() },
 					"Use a Shadow Relic at night after beating the Moon Lord",
 					"The Shadow Amalgamation flees",
-					"ImmortalShadows/NPCs/ShadowAmalg/ShadowAmalg",
-					"ImmortalShadows/NPCs/ShadowAmalg/ShadowAmalg_Head_Boss");
+					"ImmortalShadows/NPCs/ShadowAmalg/ShadowAmalgLog",
+					"ImmortalShadows/NPCs/ShadowAmalg/ShadowAmalgLogIcon");
 
 				bossChecklist.Call(
 					"AddMiniBoss",
 					0.1f,
 					ModContent.NPCType<BoulderBoss>(),
-					this, // Mod
+					this,
 					"Sentient Boulder",
 					(Func<bool>)(() => ShadowWorld.downedBoulderBoss),
 					ModContent.ItemType<BBsummon>(),
@@ -80,26 +80,27 @@ namespace ImmortalShadows
 
 		public override void AddRecipes()
 		{
-			//New vanilla item recipes, that make a sword-only playthrough more straight-foward.
+			//New vanilla item recipes
 			ModRecipe recipe = new ModRecipe(this);
 			recipe.AddIngredient(this.ItemType("HallowedBlade"));
-			recipe.AddIngredient(ItemID.BrokenHeroSword, 3);
+			recipe.AddIngredient(ItemID.BrokenHeroSword, 2);
+			recipe.AddIngredient(ItemID.SpectreBar, 4);
 			recipe.AddTile(TileID.LihzahrdFurnace);
 			recipe.SetResult(ItemID.TerraBlade);
 			recipe.AddRecipe();
 
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.TerraBlade);
-			recipe.AddIngredient(ItemID.MartianConduitPlating, 14);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddIngredient(ItemID.MartianConduitPlating, 18);
+			recipe.AddTile(TileID.LihzahrdFurnace);
 			recipe.SetResult(ItemID.InfluxWaver);
 			recipe.AddRecipe();
 
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.TerraBlade);
-			recipe.AddIngredient(ItemID.LihzahrdBrick, 10);
+			recipe.AddIngredient(ItemID.BeetleHusk, 10);
 			recipe.AddIngredient(ItemID.DefenderMedal, 4);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddTile(TileID.LihzahrdFurnace);
 			recipe.SetResult(ItemID.DD2SquireBetsySword);
 			recipe.AddRecipe();
 
