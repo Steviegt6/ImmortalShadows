@@ -21,5 +21,5 @@ v1.2, The Rework Update: Completely rebalances the mod, resprites most items (an
 
 Credits:
 Example Mod/tmod devs and youtube tutorials by FoolsLynx and Al0n37 for teaching me how to code.
-The creator(s) of the AM2R OST, since one of its tracks is used in the mod.
+The creator(s) of the HQ AM2R OST, since one of its tracks is used in the mod.
 Jean-Samuel Pelletier (Comarade FalcoN), the creator of the AM2R extras SR Project, since one of its tracks is used in the mod.
