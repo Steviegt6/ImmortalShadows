@@ -49,14 +49,14 @@ namespace ImmortalShadows.Items.Weapons
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.InfluxWaver);
 			recipe.AddIngredient(ItemID.FragmentSolar, 14);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.DD2SquireBetsySword);
 			recipe.AddIngredient(ItemID.FragmentSolar, 14);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
