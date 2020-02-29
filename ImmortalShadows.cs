@@ -1,10 +1,12 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.DataStructures;
+using Terraria.GameContent.Dyes;
+using Terraria.GameContent.UI;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -17,12 +19,26 @@ using ImmortalShadows.NPCs.BoulderBoss;
 using ImmortalShadows.Items.BoulderBoss;
 using ImmortalShadows.Items.Placeable;
 using ImmortalShadows.Items.Armor.Masks;
+using ImmortalShadows.Items;
+using ImmortalShadows.Items.Weapons;
 using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows
 {
 	public class ImmortalShadows : Mod
 	{
+		public static ImmortalShadows Instance;
+
+		public override void Load()
+		{
+			Instance = this;
+		}
+
+		public override void Unload()
+		{
+			Instance = null;
+		}
+
 		public ImmortalShadows()
 		{
 			Properties = new ModProperties()
@@ -35,14 +51,18 @@ namespace ImmortalShadows
 		
         public override void PostSetupContent()
         {
-            //Cenus support
-            Mod censusMod = ModLoader.GetMod("Census");
+			#region Cenus support
+
+			Mod censusMod = ModLoader.GetMod("Census");
             if(censusMod != null)
             {
-                 censusMod.Call("TownNPCCondition", NPCType("Shadow Creature"), "Have a Shadow Chunk in your inventory");
+                 censusMod.Call("TownNPCCondition", NPCType("Shadow Amalgamation"), "Defeat the Shadow Amalgamation");
             }
 
-			//Boss checklist support
+			#endregion
+
+			#region Boss Checklist support
+
 			Mod bossChecklist = ModLoader.GetMod("BossChecklist");
 			if (bossChecklist != null)
 			{
@@ -52,7 +72,7 @@ namespace ImmortalShadows
 					ModContent.NPCType<ShadowAmalg>(),
 					this,
 					"Shadow Amalgamation",
-					(Func<bool>)(() => ShadowWorld.downedShadowAmalg),
+					(Func<bool>)(() => ImmortalWorld.downedShadowAmalg),
 					ModContent.ItemType<SAsummon>(),
 					new List<int> { ModContent.ItemType<ShadowAmalgTrophy>(), ModContent.ItemType<ShadowAmalgMask>() },
 					new List<int> { ModContent.ItemType<ShadowChunk>() },
@@ -62,12 +82,12 @@ namespace ImmortalShadows
 					"ImmortalShadows/NPCs/ShadowAmalg/ShadowAmalgLogIcon");
 
 				bossChecklist.Call(
-					"AddMiniBoss",
+					"AddBoss",
 					0.1f,
 					ModContent.NPCType<BoulderBoss>(),
 					this,
 					"Sentient Boulder",
-					(Func<bool>)(() => ShadowWorld.downedBoulderBoss),
+					(Func<bool>)(() => ImmortalWorld.downedBoulderBoss),
 					ModContent.ItemType<BBsummon>(),
 					new List<int> { ModContent.ItemType<BoulderBossTrophy>(), ModContent.ItemType<BoulderBossMask>() },
 					new List<int> { ItemID.StoneBlock, ModContent.ItemType<BoulderMaterial>() },
@@ -75,14 +95,32 @@ namespace ImmortalShadows
 					"The Sentient Boulder flees",
 					"ImmortalShadows/NPCs/BoulderBoss/BoulderBoss",
 					"ImmortalShadows/NPCs/BoulderBoss/BoulderBoss_Head_Boss");
+
+				bossChecklist.Call(
+					"AddBoss",
+					6.5f,
+					ModContent.NPCType<ShadowEye>(),
+					this,
+					"Dark Eye",
+					(Func<bool>)(() => ImmortalWorld.downedShadowEye),
+					ModContent.ItemType<ShadowEyeSummon>(),
+					new List<int> { ModContent.ItemType<ShadowEyeTrophy>(), ModContent.ItemType<ShadowEyeMask>() },
+					new List<int> { ItemID.SoulofNight },
+					"Use a Very Suspicious Looking Eye at night",
+					"The Dark Eye flees",
+					"ImmortalShadows/NPCs/ShadowAmalg/ShadowEyeLog",
+					"ImmortalShadows/NPCs/ShadowAmalg/ShadowEye_Head_Boss");
 			}
+
+			#endregion
 		}
 
-		public override void AddRecipes()
+        public override void AddRecipes()
 		{
-			//New vanilla item recipes
+			#region Vanilla item recipes
+
 			ModRecipe recipe = new ModRecipe(this);
-			recipe.AddIngredient(this.ItemType("HallowedBlade"));
+			recipe.AddIngredient(ModContent.ItemType<HallowedBlade>());
 			recipe.AddIngredient(ItemID.BrokenHeroSword, 2);
 			recipe.AddIngredient(ItemID.SpectreBar, 4);
 			recipe.AddTile(TileID.LihzahrdFurnace);
@@ -105,25 +143,27 @@ namespace ImmortalShadows
 			recipe.AddRecipe();
 
 			recipe = new ModRecipe(this);
-			recipe.AddIngredient(this.ItemType("SolarBlade"));
+			recipe.AddIngredient(ModContent.ItemType<SolarBlade>());
 			recipe.AddIngredient(ItemID.LunarBar, 12);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(ItemID.Meowmere);
 			recipe.AddRecipe();
 
 			recipe = new ModRecipe(this);
-			recipe.AddIngredient(this.ItemType("BoulderBlade"));
+			recipe.AddIngredient(ModContent.ItemType<BoulderBlade>());
 			recipe.AddIngredient(ItemID.DemoniteBar, 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(ItemID.EnchantedSword);
 			recipe.AddRecipe();
 
 			recipe = new ModRecipe(this);
-			recipe.AddIngredient(this.ItemType("BoulderBlade"));
+			recipe.AddIngredient(ModContent.ItemType<BoulderBlade>());
 			recipe.AddIngredient(ItemID.CrimtaneBar, 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(ItemID.EnchantedSword);
 			recipe.AddRecipe();
+
+			#endregion
 		}
-	}
+    }
 }

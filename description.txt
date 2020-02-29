@@ -1,25 +1,25 @@
-(Credits and update summaries below)
+[c/F2C900:(Credits and update summaries below)]
 Immortal Shadows is an open-source content mod.
 It doesn't add much right now, but will hopefully have lots of content in the future!
-Full changelogs are in the discord server, a link is provided at the homepage (GitHub)
+[c/0011CC:Full changelogs are in the discord server, a link is] [c/0011CC:provided at the homepage (GitHub)]
 
-Current content:
-51 items
-1 boss
-1 miniboss
-1 enemy
-1 town NPC
-Boss Checklist and Census support
+[g:5] [c/007FFF:Current content:] [g:4]
+[i/s1:278]64 items
+[i/s1:278]2 bosses
+[i/s1:278]1 miniboss
+[i/s1:278]1 enemy
+[i/s1:278]1 town NPC
+[i/s1:184]Boss Checklist and Census support
 
-Major Update summaries:
+[c/FF7F00:Major Update summaries:]
+v1.3: Reworks and polishes almost everything, as well as adding some new content.
 
-v1.2.2, The Shadow Update 2: Reworks the Shadow Amalgamation to be closer to a boss.
+v1.2.2: Reworks the Shadow Amalgamation to be closer to a boss.
 
-v1.2.1, The Boulder (and sword) Update: Adds boss log support, a boulder miniboss, enough beam swords for a sword only playthrough to be possible, and buffs 5 vanilla beam swords. It also balances some stuff. 
+v1.2.1: Adds boss log support, a boulder miniboss, a lot of beam swords, and buffs 5 vanilla beam swords. It also balances some stuff. 
 
-v1.2, The Rework Update: Completely rebalances the mod, resprites most items (and the Shadow Amalgamation), and adds some things.
-
-Credits:
-Example Mod/tmod devs and youtube tutorials by FoolsLynx and Al0n37 for teaching me how to code.
-The creator(s) of the HQ AM2R OST, since one of its tracks is used in the mod.
-Jean-Samuel Pelletier (Comarade FalcoN), the creator of the AM2R extras SR Project, since one of its tracks is used in the mod.
+[c/43CC00:Credits:]
+[i/s1:58]Example Mod/Elemental Unleash/tmod devs and youtube tutorials by FoolsLynx and Al0n37 for teaching me how to code.
+[i/s1:58]Jean-Samuel Pelletier (Comarade FalcoN), the creator of the AM2R extras SR Project, since two of its tracks are used in the mod.
+[i/s1:58]Nintendo for creating the Metroid franchise, since there are a few references to it in the mod.
+[i/s1:58]ChaosMiles07, since I used a metroid beam spritesheet made by them.
