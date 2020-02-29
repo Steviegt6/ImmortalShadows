@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Accessories
 {
@@ -25,7 +26,7 @@ namespace ImmortalShadows.Items.Accessories
 			item.shieldSlot = temp;
 			item.width = 30;
 			item.height = 34;
-			item.value = Item.sellPrice(gold: 35);
+			item.value = Item.sellPrice(gold: 12);
 			item.rare = 11;
 			item.accessory = true;
 			item.defense = 6;
@@ -53,8 +54,8 @@ namespace ImmortalShadows.Items.Accessories
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.AnkhShield);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 40);
-			recipe.AddIngredient(ItemID.LunarBar, 30);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 18);
+			recipe.AddIngredient(ItemID.LunarBar, 14);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

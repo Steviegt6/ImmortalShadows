@@ -14,14 +14,14 @@ namespace ImmortalShadows.Items.ShadowAmalg
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Shadow Relic");
-			Tooltip.SetDefault("Summons the shadow amalgamation");
+			Tooltip.SetDefault("Summons the Shadow Amalgamation \nIf the Shadow Amalgamation has already been defeated, it will summon a replacment \nCan only be used at night and after killing the Moon Lord");
 			ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
 		}
 
 		public override void SetDefaults() 
 		{
-			item.width = 18;
-			item.height = 18;
+			item.width = 20;
+			item.height = 20;
 			item.maxStack = 20;
 			item.rare = 10;
 			item.useAnimation = 45;
@@ -32,34 +32,43 @@ namespace ImmortalShadows.Items.ShadowAmalg
 
 		public override bool CanUseItem(Player player) 
 		{
-			return NPC.downedMoonlord && !Main.dayTime && !NPC.AnyNPCs(NPCType<NPCs.ShadowAmalg.ShadowAmalg>());
+			return NPC.downedMoonlord && !Main.dayTime && !NPC.AnyNPCs(NPCType<NPCs.ShadowAmalg.ShadowAmalg>()) && !NPC.AnyNPCs(NPCType<NPCs.ShadowAmalg.ShadowAmalg2>()) && !NPC.AnyNPCs(NPCType<NPCs.ShadowAmalg.DarkAmalg.DarkAmalg>()) && !NPC.AnyNPCs(NPCType<NPCs.ShadowAmalg.DarkAmalg.DarkAmalg2>());
 		}
 
 		public override bool UseItem(Player player) 
 		{
-			NPC.SpawnOnPlayer(player.whoAmI, NPCType<NPCs.ShadowAmalg.ShadowAmalg>());
-			Main.PlaySound(SoundID.Roar, player.position, 0);
-			return true;
+			if (ImmortalWorld.downedShadowAmalg)
+			{
+				NPC.SpawnOnPlayer(player.whoAmI, NPCType<NPCs.ShadowAmalg.DarkAmalg.DarkAmalg>());
+				Main.PlaySound(SoundID.Roar, player.position, 0);
+				return true;
+			}
+			else
+			{
+				NPC.SpawnOnPlayer(player.whoAmI, NPCType<NPCs.ShadowAmalg.ShadowAmalg>());
+				Main.PlaySound(SoundID.Roar, player.position, 0);
+				return true;
+			}
 		}
 
 		public override void OnConsumeItem(Player player)
 		{
-			if (ShadowWorld.downedShadowAmalg)
+			if (ImmortalWorld.downedShadowAmalg)
 			{
 				Main.NewText("...", 191, 0, 0);
 			}
 			else
 			{
-				Main.NewText("You are the one i've been looking for...", 191, 0, 0);
+				Main.NewText("You are the one i've been looking for...", 255, 0, 0);
 			}
 		}
 
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.LunarOre, 5);
-			recipe.AddIngredient(ItemID.SoulofFright, 5);
-			recipe.AddIngredient(ItemID.SoulofNight, 5);
+			recipe.AddIngredient(ItemID.LunarBar, 5);
+			recipe.AddIngredient(ItemID.SoulofFright, 10);
+			recipe.AddIngredient(ItemID.SoulofNight, 10);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

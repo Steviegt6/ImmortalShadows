@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Accessories
 {
@@ -33,7 +34,7 @@ namespace ImmortalShadows.Items.Accessories
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("BoulderMaterial"), 12);
+			recipe.AddIngredient(ItemType<BoulderBoss.BoulderMaterial>(), 12);
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

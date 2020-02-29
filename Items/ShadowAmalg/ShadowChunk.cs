@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
 
 namespace ImmortalShadows.Items.ShadowAmalg
 {
@@ -10,8 +11,7 @@ namespace ImmortalShadows.Items.ShadowAmalg
         public override void SetStaticDefaults()
         {
 			DisplayName.SetDefault("Shadow Chunk");
-            Tooltip.SetDefault("What the heck is this?"
-			    + "\nDrops from the Shadow Amalgamation");
+            Tooltip.SetDefault("What the heck is this?");
         }
 
         public override void SetDefaults()

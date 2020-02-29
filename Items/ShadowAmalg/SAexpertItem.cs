@@ -12,7 +12,7 @@ namespace ImmortalShadows.Items.ShadowAmalg
         {
             DisplayName.SetDefault("Amalgamated Core");
             Tooltip.SetDefault("Minor increases all stats\nIncreases armor penetration by 8");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(15, 8));
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(10, 8));
         }
 
         public override void SetDefaults()
@@ -20,7 +20,7 @@ namespace ImmortalShadows.Items.ShadowAmalg
             item.width = 22;
             item.height = 22;
             item.expert = true;
-            item.value = Item.buyPrice(gold: 15);
+            item.value = Item.buyPrice(gold: 10);
             item.rare = 11;
             item.accessory = true;
         }

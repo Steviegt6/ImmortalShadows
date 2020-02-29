@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Accessories
 {
@@ -12,7 +13,7 @@ namespace ImmortalShadows.Items.Accessories
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Celestial Shadescarf");
-			Tooltip.SetDefault("Reduces damage taken by 20%\nIncreases to all stats\nIncreases armor penetration by 10\nTurns the holder into a werewolf at night and a merfolk when entering water");
+			Tooltip.SetDefault("Reduces damage taken by 20%\nIncreases to all stats\nIncreases armor penetration by 10\nTurns the holder into a werewolf at night and a merfolk when entering water\nGrants Shadow Dodge");
 			Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(10, 4));
 		}
 
@@ -21,8 +22,9 @@ namespace ImmortalShadows.Items.Accessories
 			sbyte temp = item.neckSlot;
 			item.CloneDefaults(ItemID.WormScarf);
 			item.neckSlot = temp;
-			item.value = Item.sellPrice(gold: 40);
+			item.value = Item.sellPrice(gold: 16);
 			item.rare = 11;
+			item.defense = 4;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
@@ -43,6 +45,7 @@ namespace ImmortalShadows.Items.Accessories
 
 			player.accMerman = true;
 			player.wolfAcc = true;
+			player.onHitDodge = true;
 			if (hideVisual)
 			{
 				player.hideMerman = true;
@@ -53,12 +56,13 @@ namespace ImmortalShadows.Items.Accessories
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("SAexpertItem"));
+			recipe.AddIngredient(ItemType<ShadowAmalg.SAexpertItem>());
+			recipe.AddIngredient(ItemType<ShadowAmalg.SEexpertItem>());
 			recipe.AddIngredient(ItemID.WormScarf);
 			recipe.AddIngredient(ItemID.SharkToothNecklace);
 			recipe.AddIngredient(ItemID.CelestialShell);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 30);
-			recipe.AddIngredient(ItemID.LunarBar, 30);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 14);
+			recipe.AddIngredient(ItemID.LunarBar, 12);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Armor
 {
@@ -21,7 +22,7 @@ namespace ImmortalShadows.Items.Armor
 		{
 			item.width = 18;
 			item.height = 18;
-			item.value = Item.sellPrice(gold: 20);
+			item.value = Item.sellPrice(gold: 8);
 			item.rare = 11;
 			item.defense = 30;
 			item.glowMask = 29;
@@ -43,12 +44,9 @@ namespace ImmortalShadows.Items.Armor
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.SolarFlareBreastplate);
 			recipe.AddIngredient(ItemID.NebulaBreastplate);
-			recipe.AddIngredient(ItemID.VortexBreastplate);
-			recipe.AddIngredient(ItemID.StardustBreastplate);
-			recipe.AddIngredient(ItemID.LunarBar, 16);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 20);
+			recipe.AddIngredient(ItemID.SquireAltShirt);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 18);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

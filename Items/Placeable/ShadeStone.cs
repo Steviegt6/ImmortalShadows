@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Placeable
 {
@@ -18,17 +19,22 @@ namespace ImmortalShadows.Items.Placeable
 			item.useTime = 10;
 			item.useStyle = 1;
 			item.consumable = true;
-			item.createTile = mod.TileType("ShadeStone");
-			item.value = Item.sellPrice(silver: 10);
+			item.createTile = TileType<Tiles.ShadeStone>();
 		}
 		
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.StoneBlock, 2);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"));
+			recipe.AddIngredient(ItemID.StoneBlock);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>());
 			recipe.AddTile(TileID.Furnaces);
 			recipe.SetResult(this, 2);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemType<Placeable.ShadeStoneWall>(), 4);
+			recipe.AddTile(TileID.WorkBenches);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 	}

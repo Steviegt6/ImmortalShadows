@@ -3,6 +3,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.Localization;
+using ImmortalShadows.Items.Armor;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Armor
 {
@@ -22,7 +24,7 @@ namespace ImmortalShadows.Items.Armor
 		{
 			item.width = 26;
 			item.height = 24;
-			item.value = Item.sellPrice(gold: 15);;
+			item.value = Item.sellPrice(gold: 10);
 			item.rare = 11;
 			item.defense = 25;
 			item.glowMask = 28;
@@ -43,24 +45,31 @@ namespace ImmortalShadows.Items.Armor
 		
 		public override bool IsArmorSet(Item head, Item body, Item legs) 
 		{
-			return body.type == mod.ItemType("ShadowBreastplate") && legs.type == mod.ItemType("ShadowLeggings");
+			return body.type == ItemType<ShadowBreastplate>() && legs.type == ItemType<ShadowLeggings>();
 		}
 
 		public override void UpdateArmorSet(Player player) 
 		{
-			player.setBonus = "Immunity to Moon Bite";
+			player.setBonus = "Immunity to Moon Bite \nSet bonuses of Nebula and Valhalla Knight armors";
 			player.buffImmune[BuffID.MoonLeech] = true;
+
+			player.setSquireT3 = true;
+			player.setSquireT2 = true;
+
+			if (player.nebulaCD > 0)
+			{
+				player.nebulaCD--;
+			}
+			player.setNebula = true;
 		}
 
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.SolarFlareHelmet);
-			recipe.AddIngredient(ItemID.NebulaHelmet);
-			recipe.AddIngredient(ItemID.VortexHelmet);
+			recipe.AddIngredient(ItemID.ChlorophyteHelmet);
 			recipe.AddIngredient(ItemID.StardustHelmet);
-			recipe.AddIngredient(ItemID.LunarBar, 8);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 10);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 10);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

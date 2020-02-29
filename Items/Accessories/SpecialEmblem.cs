@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Accessories
 {
@@ -19,7 +20,7 @@ namespace ImmortalShadows.Items.Accessories
 		{
 			item.width = 18;
 			item.height = 18;
-			item.value = Item.sellPrice(gold: 20);
+			item.value = Item.sellPrice(gold: 16);
 			item.rare = 11;
 			item.accessory = true;
 		}
@@ -38,7 +39,7 @@ namespace ImmortalShadows.Items.Accessories
 			recipe.AddIngredient(ItemID.DestroyerEmblem, 1);
 			recipe.AddIngredient(ItemID.LunarBar, 14);
 			recipe.AddIngredient(ItemID.SoulofLight, 14);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 14);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 14);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
