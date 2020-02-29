@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items
 {
@@ -34,14 +35,14 @@ namespace ImmortalShadows.Items
 			*/
 			item.CloneDefaults(ItemID.AmethystHook);
 			item.shootSpeed = 18f;
-			item.shoot = mod.ProjectileType("ShadowHookProjectile");
-			item.value = Item.sellPrice(gold: 10);
+			item.shoot = ProjectileType<ShadowHookProjectile>();
+			item.value = Item.sellPrice(gold: 6);
 		}
 		
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 12);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 12);
 			recipe.AddIngredient(ItemID.LunarHook);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);

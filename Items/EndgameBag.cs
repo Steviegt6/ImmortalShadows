@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items
 {
@@ -44,7 +45,7 @@ namespace ImmortalShadows.Items
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.LunarBar, 999);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 999);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 999);
 			recipe.AddIngredient(ItemID.MoonLordBossBag, 2);
 			recipe.AddIngredient(ItemID.GoldCoin, 99);
 			recipe.SetResult(this);

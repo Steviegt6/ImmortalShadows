@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items
 {
@@ -33,7 +34,7 @@ namespace ImmortalShadows.Items
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.SuperHealingPotion);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 5);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 5);
 			recipe.AddTile(TileID.AlchemyTable);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

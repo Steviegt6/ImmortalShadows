@@ -26,7 +26,7 @@ namespace ImmortalShadows.Items
             item.maxStack = 99;
             item.consumable = true;
             item.rare = 11;
-            item.value = Item.sellPrice(gold: 5);
+            item.value = Item.sellPrice(gold: 7, silver: 50);
             item.buffType = BuffType<Buffs.ShadowBuff>();
             item.buffTime = 36000;
         }
@@ -42,7 +42,7 @@ namespace ImmortalShadows.Items
 			recipe.AddIngredient(ItemID.SwiftnessPotion);
 			recipe.AddIngredient(ItemID.LifeforcePotion);
 			recipe.AddIngredient(ItemID.SummoningPotion);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 50);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 40);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this, 2);
 			recipe.AddRecipe();

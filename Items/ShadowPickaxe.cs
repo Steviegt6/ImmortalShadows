@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items
 {
@@ -23,29 +24,22 @@ namespace ImmortalShadows.Items
 			item.pick = 235;
 			item.useStyle = 1;
 			item.knockBack = 5;
-			item.value = Item.sellPrice(gold: 10);
+			item.value = Item.sellPrice(gold: 8);
 			item.rare = 11;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.useTurn = true;
+			item.tileBoost += 5;
 		}
 
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.SolarFlarePickaxe);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 35);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 12);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-		}
-
-		public override void MeleeEffects(Player player, Rectangle hitbox) 
-		{
-			if (Main.rand.NextBool(10)) 
-			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, mod.DustType("ShadowDust"));
-			}
 		}
 	}
 }

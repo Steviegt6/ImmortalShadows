@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items
 {
@@ -18,23 +19,24 @@ namespace ImmortalShadows.Items
 		{
 			item.damage = 0;
 			item.useStyle = 1;
-			item.shoot = mod.ProjectileType("ShadowLightPet");
+			item.shoot = ProjectileType<Projectiles.Pets.ShadowLightPet>();
 			item.width = 26;
 			item.height = 28;
 			item.UseSound = SoundID.Item2;
 			item.useAnimation = 20;
 			item.useTime = 20;
 			item.rare = 11;
+			item.expert = true;
 			item.noMelee = true;
-			item.value = Item.sellPrice(gold: 15);
-			item.buffType = mod.BuffType("ShadowLightPet");
+			item.value = Item.sellPrice(gold: 12);
+			item.buffType = BuffType<Buffs.ShadowLightPet>();
 		}
 
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.SuspiciousLookingTentacle);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 40);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 14);
 			recipe.AddIngredient(ItemID.LifeFruit, 10);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
