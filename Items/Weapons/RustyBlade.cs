@@ -31,7 +31,6 @@ namespace ImmortalShadows.Items.Weapons
 			item.shoot = ProjectileID.EnchantedBeam;
 			item.shootSpeed = 10f;
 			item.useTurn = true;
-			item.crit = 4;
 		}
 
 		public override void AddRecipes() 

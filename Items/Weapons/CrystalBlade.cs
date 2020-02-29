@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Weapons
 {
@@ -18,8 +19,8 @@ namespace ImmortalShadows.Items.Weapons
 		{
 			item.damage = 62;
 			item.melee = true;
-			item.width = 46;
-			item.height = 50;
+			item.width = 44;
+			item.height = 48;
 			item.useTime = 17;
 			item.useAnimation = 17;
 			item.useStyle = 1;
@@ -31,7 +32,6 @@ namespace ImmortalShadows.Items.Weapons
 			item.shoot = ProjectileID.SwordBeam;
 			item.shootSpeed = 12f;
 			item.useTurn = true;
-			item.crit = 4;
 		}
 
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
@@ -46,7 +46,7 @@ namespace ImmortalShadows.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("RustyBlade"));
+			recipe.AddIngredient(ItemType<RustyBlade>());
 			recipe.AddIngredient(ItemID.CrystalShard, 18);
 			recipe.AddIngredient(ItemID.AdamantiteBar, 8);
 			recipe.AddTile(TileID.MythrilAnvil);
@@ -54,7 +54,7 @@ namespace ImmortalShadows.Items.Weapons
 			recipe.AddRecipe();
 
 			recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("RustyBlade"));
+			recipe.AddIngredient(ItemType<RustyBlade>());
 			recipe.AddIngredient(ItemID.CrystalShard, 18);
 			recipe.AddIngredient(ItemID.TitaniumBar, 8);
 			recipe.AddTile(TileID.MythrilAnvil);

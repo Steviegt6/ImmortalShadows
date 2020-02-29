@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Weapons
 {
@@ -10,25 +11,25 @@ namespace ImmortalShadows.Items.Weapons
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Shade Wrath");
-			Tooltip.SetDefault("Rains death from the sky");
+			Tooltip.SetDefault("Rains death from the sky \nProjectiles iflict Dark Inferno");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.damage = 240;
+			item.damage = 255;
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 18;
-			item.useAnimation = 18;
+			item.useTime = 20;
+			item.useAnimation = 20;
 			item.useStyle = 1;
 			item.knockBack = 5;
-			item.value = Item.sellPrice(gold: 40);
+			item.value = Item.sellPrice(gold: 22);
 			item.rare = 11;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("ShadowGreatswordStar");
-			item.shootSpeed = 10f;
+			item.shoot = ProjectileType<Projectiles.ShadowGreatswordStar>();
+			item.shootSpeed = 14f;
 			item.useTurn = true;
 			item.crit = 14;
 			item.scale = 1.5f;
@@ -38,7 +39,7 @@ namespace ImmortalShadows.Items.Weapons
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.StarWrath);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 25);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 14);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -48,7 +49,7 @@ namespace ImmortalShadows.Items.Weapons
 		{
 			if (Main.rand.NextBool(10)) 
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, mod.DustType("ShadowDust"));
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustType<Dusts.ShadowDust>());
 			}
 		}
 		

@@ -34,7 +34,6 @@ namespace ImmortalShadows.Items.Weapons
 			item.shoot = ProjectileID.EnchantedBeam;
 			item.shootSpeed = 8f;
 			item.useTurn = true;
-			item.crit = 4;
 			item.scale = 1.2f;
 		}
 

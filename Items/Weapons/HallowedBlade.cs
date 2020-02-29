@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Weapons
 {
@@ -25,13 +26,12 @@ namespace ImmortalShadows.Items.Weapons
 			item.useStyle = 1;
 			item.knockBack = 6;
 			item.value = Item.sellPrice(gold: 14);
-			item.rare = 6;
+			item.rare = 5;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.shoot = ProjectileID.LightBeam;
 			item.shootSpeed = 13f;
 			item.useTurn = true;
-			item.crit = 4;
 		}
 
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
@@ -46,7 +46,7 @@ namespace ImmortalShadows.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("CrystalBlade"));
+			recipe.AddIngredient(ItemType<CrystalBlade>());
 			recipe.AddIngredient(ItemID.HallowedBar, 14);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);

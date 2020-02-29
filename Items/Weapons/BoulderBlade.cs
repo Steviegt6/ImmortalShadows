@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ImmortalShadows.Projectiles;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Weapons
 {
@@ -31,15 +31,14 @@ namespace ImmortalShadows.Items.Weapons
 			item.shoot = ProjectileID.EnchantedBeam;
 			item.shootSpeed = 9f;
 			item.useTurn = true;
-			item.crit = 4;
 			item.scale = 1.5f;
 		}
 
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("BoulderMaterial"), 8);
-			recipe.AddIngredient(mod.ItemType("BasicBlade"));
+			recipe.AddIngredient(ItemType<BoulderBoss.BoulderMaterial>(), 8);
+			recipe.AddIngredient(ItemType<BasicBlade>());
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

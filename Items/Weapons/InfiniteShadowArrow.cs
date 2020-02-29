@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Weapons
 {
@@ -15,7 +16,7 @@ namespace ImmortalShadows.Items.Weapons
 
 		public override void SetDefaults() 
 		{
-			item.damage = 16;
+			item.damage = 14;
 			item.ranged = true;
 			item.width = 18;
 			item.height = 38;
@@ -24,7 +25,7 @@ namespace ImmortalShadows.Items.Weapons
 			item.knockBack = 3.5f;
 			item.value = Item.sellPrice(gold: 2);
 			item.rare = 11;
-			item.shoot = mod.ProjectileType("ShadowArrow");   
+			item.shoot = ProjectileType<Projectiles.ShadowArrow>();   
 			item.shootSpeed = 20f;                  
 			item.ammo = AmmoID.Arrow;              
 		}
@@ -33,7 +34,7 @@ namespace ImmortalShadows.Items.Weapons
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.MoonlordArrow, 3996);
-			recipe.AddIngredient(mod.ItemType("ShadowArrow"), 3996);
+			recipe.AddIngredient(ItemType<ShadowArrow>(), 3996);
 			recipe.AddIngredient(ItemID.SoulofMight, 25);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);

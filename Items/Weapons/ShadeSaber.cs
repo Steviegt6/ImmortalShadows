@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Weapons
 {
@@ -12,7 +13,7 @@ namespace ImmortalShadows.Items.Weapons
 			DisplayName.SetDefault("Shade Saber");
 			Tooltip.SetDefault("That's gonna leave a mark."
 			    + "\nTrue melee weapon"
-				+ "\nInflicts Betsy's Curse, Shadowflame and Venom on enemies");
+				+ "\nInflicts Betsy's Curse, Shadowflame and Dark Inferno on enemies");
 		}
 
 		public override void SetDefaults() 
@@ -25,7 +26,7 @@ namespace ImmortalShadows.Items.Weapons
 			item.useAnimation = 15;
 			item.useStyle = 1;
 			item.knockBack = 6;
-			item.value = Item.sellPrice(gold: 55);
+			item.value = Item.sellPrice(gold: 26);
 			item.rare = 11;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
@@ -37,7 +38,7 @@ namespace ImmortalShadows.Items.Weapons
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 50);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 24);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -47,7 +48,7 @@ namespace ImmortalShadows.Items.Weapons
 		{
 			if (Main.rand.NextBool(10)) 
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, mod.DustType("ShadowDust"));
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustType<Dusts.ShadowDust>());
 			}
 		}
 		
@@ -55,7 +56,7 @@ namespace ImmortalShadows.Items.Weapons
 		{
 			target.AddBuff(BuffID.BetsysCurse, 1200);
 			target.AddBuff(BuffID.ShadowFlame, 600);
-			target.AddBuff(BuffID.Venom, 300);
+			target.AddBuff(BuffType<Buffs.Debuffs.DarkFlame>(), 300);
 		}
 	}
 }

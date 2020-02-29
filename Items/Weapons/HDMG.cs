@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Weapons
 {
@@ -25,7 +26,7 @@ namespace ImmortalShadows.Items.Weapons
 			item.useStyle = 5;
 			item.noMelee = true;
 			item.knockBack = 4;
-			item.value = Item.sellPrice(gold: 30);
+			item.value = Item.sellPrice(gold: 18);
 			item.rare = 11;
 			item.UseSound = SoundID.Item11;
 			item.autoReuse = true;
@@ -38,7 +39,7 @@ namespace ImmortalShadows.Items.Weapons
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 18);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 16);
 			recipe.AddIngredient(ItemID.SDMG);
 			recipe.AddIngredient(ItemID.VortexBeater);
 			recipe.AddTile(TileID.LunarCraftingStation);

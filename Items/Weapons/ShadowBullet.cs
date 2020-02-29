@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Items.Weapons
 {
@@ -10,7 +11,7 @@ namespace ImmortalShadows.Items.Weapons
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Shadesteel Bullet");
-			Tooltip.SetDefault("Pierces, bounces and inflicts Shadowflame on enemies");
+			Tooltip.SetDefault("Pierces, bounces and inflicts Dark Inferno on enemies");
 		}
 
 		public override void SetDefaults() 
@@ -24,7 +25,7 @@ namespace ImmortalShadows.Items.Weapons
 			item.knockBack = 1.5f;
 			item.value = Item.sellPrice(silver: 2);
 			item.rare = 11;
-			item.shoot = mod.ProjectileType("ShadowBullet");   
+			item.shoot = ProjectileType<Projectiles.ShadowBullet>();   
 			item.shootSpeed = 20f;                  
 			item.ammo = AmmoID.Bullet;              
 		}
@@ -33,7 +34,7 @@ namespace ImmortalShadows.Items.Weapons
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.MoonlordBullet, 5);
-			recipe.AddIngredient(mod.ItemType("ShadowChunk"), 5);
+			recipe.AddIngredient(ItemType<ShadowAmalg.ShadowChunk>(), 5);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this, 333);
 			recipe.AddRecipe();
