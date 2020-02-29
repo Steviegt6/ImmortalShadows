@@ -5,6 +5,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
 using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using ImmortalShadows.Items.ShadowAmalg;
 using ImmortalShadows.Items.Placeable;
 using ImmortalShadows.Items.Armor.Masks;
@@ -37,27 +42,24 @@ namespace ImmortalShadows.NPCs.ShadowAmalg
 			npc.height = 58;
 			npc.boss = true;
 			npc.aiStyle = -1;
-			npc.npcSlots = 5f;
-			npc.lifeMax = 150000;
+			npc.lifeMax = 70000;
 			npc.damage = 170;
-			npc.defense = 15;
+			npc.defense = 20;
 			npc.knockBackResist = 0f;
 			npc.value = Item.buyPrice(gold: 18);
 			npc.lavaImmune = true;
 			npc.noTileCollide = true;
 			npc.noGravity = true;			
 			npc.HitSound = SoundID.NPCHit54;
-			npc.DeathSound = SoundID.NPCDeath59;
-			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AM2R_SRproject/musQueen");
-            bossBag = ItemType<ShadowAmalgBag>();
-            npc.scale = 1.65f;
+			npc.DeathSound = SoundID.NPCHit54;
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Amalg");
+            npc.scale = 1.6f;
 
 			npc.buffImmune[BuffID.Poisoned] = true;
 			npc.buffImmune[BuffID.Venom] = true;
 			npc.buffImmune[BuffID.Confused] = true; 
 			npc.buffImmune[BuffID.OnFire] = true;
 			npc.buffImmune[BuffID.Frostburn] = true;
-			npc.buffImmune[BuffID.Bleeding] = true;
 			npc.buffImmune[BuffID.Ichor] = true;
 			npc.buffImmune[BuffID.ShadowFlame] = true;
             npc.buffImmune[BuffID.Daybreak] = true;
@@ -65,9 +67,9 @@ namespace ImmortalShadows.NPCs.ShadowAmalg
 
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 220000; /*(int)(npc.lifeMax * 0.75f * bossLifeScale);*/
+            npc.lifeMax = 100000; /*(int)(npc.lifeMax * 0.75f * bossLifeScale);*/
             npc.damage = 210; /*(int)(npc.damage * 0.75f);*/
-            npc.defense = 18;
+            npc.defense = 24;
         }
 
 
@@ -169,7 +171,7 @@ namespace ImmortalShadows.NPCs.ShadowAmalg
                     shootVel *= 7.5f;
                     for (int i = 0; i < (Main.expertMode ? 5 : 3); i++)
                     {
-                        Projectile.NewProjectile(shootPos.X + (float)(-100 * npc.direction) + (float)Main.rand.Next(-40, 41), shootPos.Y - (float)Main.rand.Next(-50, 40), shootVel.X, shootVel.Y, mod.ProjectileType("ShadowAmalgProj"), npc.damage / 3, 5f);
+                        Projectile.NewProjectile(shootPos.X + (float)(-100 * npc.direction) + (float)Main.rand.Next(-40, 41), shootPos.Y - (float)Main.rand.Next(-50, 40), shootVel.X, shootVel.Y, ProjectileType<Projectiles.ShadowAmalgProj>(), npc.damage / 3, 5f);
                     }
                 }
                 else
@@ -178,8 +180,6 @@ namespace ImmortalShadows.NPCs.ShadowAmalg
                 }
             }
 
-
-
             if ((double)npc.ai[0] >= 650.0)
             {
                 ai = 0;
@@ -187,7 +187,6 @@ namespace ImmortalShadows.NPCs.ShadowAmalg
                 npc.ai[2] = 0;
                 fastSpeed = false;
             }
-
         }
 
         public override void FindFrame(int frameHeight)
@@ -243,35 +242,6 @@ namespace ImmortalShadows.NPCs.ShadowAmalg
             npc.velocity = move;
         }
 
-
-        public override void NPCLoot()
-		{
-			if (Main.rand.NextBool(10))
-			{
-				Item.NewItem(npc.getRect(), ItemType<ShadowAmalgTrophy>());
-			}
-            if (Main.expertMode)
-            {
-                npc.DropBossBags();
-            }
-            else 
-			{
-				if (Main.rand.NextBool(7))
-				{
-					Item.NewItem(npc.getRect(), ItemType<ShadowAmalgMask>());
-				}
-				Item.NewItem(npc.getRect(), ItemType<ShadowChunk>(), 22 + Main.rand.Next(16));
-			}
-			if (!ShadowWorld.downedShadowAmalg)
-			{
-				ShadowWorld.downedShadowAmalg = true;
-				if (Main.netMode == NetmodeID.Server)
-				{
-					NetMessage.SendData(MessageID.WorldData);
-				}
-			}
-		}
-
 		public override void BossLoot(ref string name, ref int potionType)
 		{
 			potionType = ItemID.SuperHealingPotion;
@@ -281,10 +251,18 @@ namespace ImmortalShadows.NPCs.ShadowAmalg
 		{
 			if (Main.rand.NextBool(3)) 
 			{
-				player.AddBuff(BuffID.Blackout, 300, true);
-				player.AddBuff(BuffID.Slow, 300);
-				player.AddBuff(BuffID.ShadowFlame, 120);
-			}
+				player.AddBuff(BuffID.Blackout, 300);
+                player.AddBuff(BuffType<Buffs.Debuffs.DarkFlame>(), 120);
+            }
 		}
-	}
+
+        public override bool CheckDead()
+        {
+            npc.active = false;
+            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<ShadowAmalg2>());
+            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<ShadowEye>());
+            Main.NewText("No... I MUST NOT FAIL!", 255, 0, 0);
+            return false;
+        }
+    }
 }

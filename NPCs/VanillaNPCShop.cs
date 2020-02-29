@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.NPCs
 {
@@ -15,7 +16,7 @@ namespace ImmortalShadows.NPCs
 
                     if (Main.hardMode)
                     {
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("BasicBlade"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Weapons.BasicBlade>());
                         nextSlot++;
                         shop.item[nextSlot].SetDefaults(ItemID.BreakerBlade);
                         nextSlot++;
@@ -26,7 +27,7 @@ namespace ImmortalShadows.NPCs
                     }
                     else
                     {   
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("BasicBlade"));  
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Weapons.BasicBlade>());  
                         nextSlot++;
                     }
 

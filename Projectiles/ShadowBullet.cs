@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Projectiles
 {
@@ -22,7 +23,7 @@ namespace ImmortalShadows.Projectiles
 			projectile.friendly = true;         
 			projectile.hostile = false;         
 			projectile.ranged = true;           
-			projectile.penetrate = 5;           
+			projectile.penetrate = 39;           
 			projectile.timeLeft = 600;          
 			projectile.alpha = 255;             
 			projectile.light = 0.5f;           
@@ -74,7 +75,7 @@ namespace ImmortalShadows.Projectiles
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			target.AddBuff(BuffID.ShadowFlame, 300, false);
+			target.AddBuff(BuffType<Buffs.Debuffs.DarkFlame>(), 300, false);
 		}
 	}
 }

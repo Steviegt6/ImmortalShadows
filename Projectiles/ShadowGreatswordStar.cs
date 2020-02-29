@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace ImmortalShadows.Projectiles
 {
@@ -11,6 +12,7 @@ namespace ImmortalShadows.Projectiles
 		{
 			projectile.CloneDefaults(503);
 			aiType = 503;
+			projectile.tileCollide = false;
 		}
 
 		public override bool PreKill(int timeLeft) 
@@ -19,15 +21,9 @@ namespace ImmortalShadows.Projectiles
 			return true;
 		}
 
-		public override bool OnTileCollide(Vector2 oldVelocity) 
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			for (int i = 0; i < 3; i++) 
-			{
-				int a = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y - 16f, Main.rand.Next(-10, 11) * .25f, Main.rand.Next(-10, -5) * .25f, 503, (int)(projectile.damage * .5f), 0, projectile.owner);
-				Main.projectile[a].aiStyle = 1;
-				Main.projectile[a].tileCollide = true;
-			}
-			return true;
+			target.AddBuff(BuffType<Buffs.Debuffs.DarkFlame>(), 400);
 		}
 	}
 }

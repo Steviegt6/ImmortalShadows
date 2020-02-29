@@ -36,7 +36,7 @@ namespace ImmortalShadows.NPCs.BoulderBoss
 			npc.boss = true;
 			npc.lavaImmune = true;
 			npc.behindTiles = true;
-			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AM2R/musArachnus");
+			music = MusicID.Boss5;
 
 			npc.buffImmune[BuffID.Confused] = true;
 		}
@@ -62,9 +62,9 @@ namespace ImmortalShadows.NPCs.BoulderBoss
 				Item.NewItem(npc.getRect(), ItemType<BoulderMaterial>(), 10);
 				Item.NewItem(npc.getRect(), ItemID.StoneBlock, 6);
 			}
-			if (!ShadowWorld.downedBoulderBoss)
+			if (!ImmortalWorld.downedBoulderBoss)
 			{
-				ShadowWorld.downedBoulderBoss = true;
+				ImmortalWorld.downedBoulderBoss = true;
 				if (Main.netMode == NetmodeID.Server)
 				{
 					NetMessage.SendData(MessageID.WorldData); // Immediately inform clients of new world state.

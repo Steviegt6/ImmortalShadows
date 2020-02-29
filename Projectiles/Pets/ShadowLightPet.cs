@@ -14,7 +14,7 @@ namespace ImmortalShadows.Projectiles.Pets
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Dark Eye");
+			DisplayName.SetDefault("Dark Eye Pet");
 			Main.projFrames[projectile.type] = 4;
 			Main.projPet[projectile.type] = true;
 			ProjectileID.Sets.LightPet[projectile.type] = true;
@@ -26,10 +26,17 @@ namespace ImmortalShadows.Projectiles.Pets
 			aiType = ProjectileID.SuspiciousTentacle;
 		}
 
-		 public override void AI()
+		public override bool PreAI()
+		{
+			Player player = Main.player[projectile.owner];
+			player.suspiciouslookingTentacle = false;
+			return true;
+		}
+
+		public override void AI()
         {
             Player player = Main.player[projectile.owner];
-            ShadowPlayer modPlayer = player.GetModPlayer<ShadowPlayer>();
+            ImmortalPlayer modPlayer = player.GetModPlayer<ImmortalPlayer>();
             if(player.dead) 
             {
                 modPlayer.shadowLightPet = false;
